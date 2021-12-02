@@ -1,0 +1,48 @@
+<!-- Navbar for medium and small screens -->
+<nav class="navbar navbar-expand-lg navbar-light no-gutters d-lg-none">
+
+    <!-- Logo -->
+
+    <a class="navbar-brand" href="" aria-label="Logo, Go to Home Page">
+        <img class="logo" src="{{ MEDIA_URL }}images/base/logo-no-background.png" alt="Marco Neves Photography Logo">
+    </a>
+
+    <!-- Toggle Button -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapse navbar content for medium and small screens -->
+
+    <div class="collapse navbar-collapse nav-height" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="" aria-label="Go to home page">Início <span class="sr-only">(Página
+                        atual)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    aria-label="Dropdown menu which opens the wedding page link, pre-wedding page link and family photo page link">
+                    Portfólio
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href=""
+                        aria-label="Go to weddings portfolio">Casamentos</a>
+                    <a class="dropdown-item" href=""
+                        aria-label="Go to pre-weddings portfolio">Pre-Weddings</a>
+                    <a class="dropdown-item" href="" aria-label="Go to family photo portfolio">Fotos
+                        de família</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="" aria-label="Go to biography page">Bio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="" aria-label="Go to contact page">Contato</a>
+            </li>
+        </ul>
+    </div>
+</nav>

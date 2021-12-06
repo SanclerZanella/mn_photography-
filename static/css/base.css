@@ -99,8 +99,12 @@ nav button {
     margin: 5px 35px 5px 0;
 }
 
-.active {
-    text-decoration: underline;
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    font-weight: 800;
+    color: #ff5b00;
 }
 
 .dropdown-item.active,
@@ -109,12 +113,14 @@ nav button {
 }
 
 nav ul .nav-link:hover {
-    background-color: #ff5b00;
     font-weight: bold;
+    color: #ff5b00 !important;
 }
 
 nav .dropdown-item:hover {
     background-color: #ff5b00;
+    color: #000;
+    font-weight: bold;
 }
 
 .navbar-lg-sc {
@@ -157,19 +163,6 @@ footer p {
     margin: 0;
 }
 
-.flags {
-    margin-left: 55px;
-}
-
-.flags img {
-    width: 30px;
-    height: 30px;
-}
-
-.translation {
-    margin-left: 550px;
-}
-
 .social-icons {
     text-align: center;
     font-size: 35px;
@@ -184,6 +177,7 @@ footer p {
 
 footer a:hover {
     color: #ef5500;
+    font-size: 1.1em;
     text-decoration: none;
 }
 

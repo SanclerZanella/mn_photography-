@@ -82,6 +82,7 @@ nav .nav-height {
   
 nav ul {
     width: 115%;
+    list-style-type:none;
 }
 
 .navbar-nav .nav-link {
@@ -143,7 +144,7 @@ nav .dropdown-item:hover {
     height: 40px;
 }
 
-/* ----------------------------------Footer */
+/* ---------------------------------- Footer */
 
 footer {
     margin-top: 25px;
@@ -183,15 +184,115 @@ footer a:hover {
 
 /* ----------------------------------Media queries*/
 
-@media screen and (max-width: 1024px) {
+@media (min-width: 1440px) {
+    .mobile-nav, .mobile-nav > * {
+        display: none;
+    }
 }
 
-@media screen and (min-width: 1200px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .mobile-nav, .mobile-nav > * {
+        display: none;
+    }
 }
 
-@media screen and (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
     nav button {
         margin: 5px 35px 5px 0;
+    }
+
+    .mobile-nav {
+        background-color: #ff5b00;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        z-index: 1000;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .logo-img {
+        height: 6vh;
+    }
+
+    .logo-font {
+        text-transform: uppercase;
+        font-size: .7em;
+        font-weight: bold;
+    }
+
+    .main-logo-link {
+        text-align: left;
+    }
+
+    .mobile-nav {
+        background-color: #fc8241;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        z-index: 1000;
+    }
+
+    .display-mobile-nav {
+        display: none !important;
+    }
+
+    .mobile-nav > .menu {
+        margin: 10rem 0;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    .mobile-nav > .menu h1,
+    .mobile-nav > .menu .mobile-cart-menu {
+        color: #fff !important;
+        font-weight: 600;
+        font-size: 1;
+    }
+
+    .mobile-nav > .close p {
+        margin: .5rem;
+    }
+
+    nav ul {
+        list-style-type:none;
+        padding: 0;
+    }
+
+    nav ul .nav-link {
+        font-weight: 600;
+        height: 10vh;
+        background-color: transparent;
+        letter-spacing: 0;
+        color: #fff;
+    }
+
+    .social-link {
+        font-size: 3em;
+    }
+
+    footer .col-12 {
+        padding-left: 4rem;
+    }
+    
+    footer .col-12 h3 {
+        font-weight: 700;
+        font-size: 1.5em;
+        margin-top: 1.5rem;
+        color: #fff;
+    }
+    
+    footer .col-12 a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    footer li a {
+        font-size: 1.2em;
     }
 }
 

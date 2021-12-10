@@ -215,3 +215,5 @@
 .eapps-instagram-feed-title {
     font-family: "Montserrat", sans-serif;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {}

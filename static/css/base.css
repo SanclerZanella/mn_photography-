@@ -39,12 +39,6 @@ hr {
   padding: 0;
 }
 
-.initial-letter {
-  font-size: 25px;
-  font-weight: bold;
-  color: #ff5b00;
-}
-
 .container-fluid {
   padding: 0;
 }
@@ -255,11 +249,13 @@ footer .col-lg-2 a:hover {
     }
 
     nav ul .nav-link {
+        font-size: 2em;
         font-weight: 600;
         height: 10vh;
         background-color: transparent;
         letter-spacing: 0;
         color: #fff;
+        margin: 2rem 0;
     }
 
     .sub-nav {
@@ -267,9 +263,10 @@ footer .col-lg-2 a:hover {
     }
 
     .sub-nav a {
-        font-size: 0.6em !important;
+        font-size: 1em !important;
         font-weight: 600;
         color: #ef5500;
+        padding: 1.5rem 0 !important;
     }
 
     .sub-nav li {

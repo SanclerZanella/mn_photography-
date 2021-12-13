@@ -7,14 +7,42 @@
 
 /* ----------------------------------middle content*/
 
-.md-content-img {
-    height: 400px;
-    filter: drop-shadow(3px 6px 9px #636161);
+.awarded_photo img {
+    max-width:90%;
+    max-height:100%;
 }
 
-#first-md-content-img {
-    margin: 30px 0 0 25px;
+.awarded-text p {
+    color: #ff5b00;
+    font-weight: 700;
+    font-size: 1.5em;
 }
+
+.logo_bride img {
+    height: 20vh;
+}
+
+.logo_bride img:hover {
+    filter: drop-shadow(1px 3px 15px #ff5b00);
+}
+
+.middle-text p {
+    width: 90%;
+    margin-top: 10rem;
+    font-size: 1.5em;
+}
+
+#rio-photo {
+    font-size: .9em;
+}
+
+.avatar_photo img {
+    width:400px;
+    height:400px;
+    border-radius: 100%;
+}
+
+/* ---------------------------------------------------------------------------- */
 
 #text-md-content {
     width: 100%;
@@ -30,7 +58,7 @@
 
 #bride-association-link {
     width: 60%;
-    margin: -150px 0 0 550px;
+    margin: -150px 0 0 600px;
     filter: drop-shadow(3px 6px 9px #636161);
 }
 
@@ -56,7 +84,7 @@
 #marco_quote {
     height: 100%;
     padding-top: 20px;
-    margin: 80px 0 0 50px;
+    margin: 5rem 0 0 50px;
     border-left: 3px solid #ff5b00;
     border-right: 3px solid #ff5b00;
     border-radius: 5%;
@@ -216,4 +244,127 @@
     font-family: "Montserrat", sans-serif;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {}
+/* ----------------------------------Media Queries */
+
+@media (max-width: 1440px) {
+    #carouselHeroSlidesOnly img {
+        height: 80vh;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+    #carouselHeroSlidesOnly img {
+        height: 90vh;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    #carouselHeroSlidesOnly img {
+        height: 80vh;
+    }
+    .awarded-text p {
+        font-size: 1.3em;
+    }
+    .logo_bride img {
+        height: 8vh;
+    }
+    .middle-text p {
+        margin-top: 6rem;
+    }
+    .testimonials {
+        height: 450px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #carouselHeroSlidesOnly img {
+        height: 70vh;
+    }
+    .awarded-text p {
+        font-size: 1.2em;
+    }
+    .avatar_photo img {
+        width:300px;
+        height:300px;
+        border-radius: 100%;
+    }
+    .middle-text p {
+        width: 90%;
+        margin-top: 5rem;
+        font-size: 1.2em;
+    }
+    #carousel-testimonials-section h2 {
+        font-size: 1.5em;
+        margin: 1rem 0;
+    }
+    .portfolio_dropdown {
+        background-color: #ff5b00;
+        margin: 1rem 0;
+    }
+    .portfolio_dropdown .hiden {
+        display: none;
+    }
+    .portfolio-items {
+        background-color: #ffffff;
+        display: none;
+    }
+    .portfolio-items .hiden {
+        display: none;
+    }
+    .portfolio-items ul {
+        list-style-type: none;
+    }
+    .portfolio-items a {
+        font-size: 1.5em;
+        font-weight: 600;
+        color: #000;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    #carouselHeroSlidesOnly img {
+        height: 50vh;
+    }
+    .awarded-text p {
+        font-size: 1.1em;
+    }
+    .avatar_photo img {
+        width:300px;
+        height:300px;
+        border-radius: 100%;
+    }
+    .middle-text p {
+        width: 90%;
+        font-size: 1em;
+        margin-left: 1rem !important;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        text-align: center !important;
+    }
+    #carousel-testimonials-section h2 {
+        font-size: 1.5em;
+        margin: 1rem 0;
+    }
+    .portfolio_dropdown {
+        background-color: #ff5b00;
+        margin: 1rem 0;
+    }
+    .portfolio_dropdown .hiden {
+        display: none;
+    }
+    .portfolio-items {
+        background-color: #ffffff;
+        display: none;
+    }
+    .portfolio-items .hiden {
+        display: none;
+    }
+    .portfolio-items ul {
+        list-style-type: none;
+    }
+    .portfolio-items a {
+        font-size: 1.5em;
+        font-weight: 600;
+        color: #000;
+    }
+}

@@ -33,76 +33,75 @@
                     </div>
                 </div>
             </figure>
+            <hr>
         </section>
 
         <!-- Middle Content section: Includes some quotes from Marco Neves with pictures and his profile photo and 
         the grid system from Bootstrap 4 -->
 
-        <section aria-labelledby="middle-content">
-            <h2 id="middle-content" class="sr-only">A middle content which contains two photos of a couple, one
-                article, one quote, and one
-                profile picture</h2>
-            <hr>
-            <div class="row md-content no-gutters">
-                <div class="col col-xl-7">
+        <section>
 
-                    <!-- Image cards with quote -->
+            <div class="row no-gutters">
 
+                <div class="col-12 col-md-6">
                     <div class="row no-gutters">
-                        <div class="col-12 col-md col-lg-6 col-xl-8 img-centered">
-                            <figure>
-                                <img id="first-md-content-img" class="md-content-img shadow"
-                                    src="{{ MEDIA_URL }}images/home/awarded-photo.jpeg" alt="
-                 grandson and grandmother thrilled with the wedding">
-                            </figure>
-                        </div>
-                        <div class="col-md col-lg-6 col-xl-4">
-                            <article aria-labelledby="middle-article">
-                                <h2 id="middle-article" class="sr-only">A description about pre-wedding and the
-                                    relationship between
-                                    photographer and couples</h2>
-                                <div id="text-md-content">
-                                    <p><span class="initial-letter">F</span>otógrafo premiado pela Bride association
-                                        uma das mais concorridas associações no mundo.
-                                    </p>
-                                </div>
-                            </article>
-                            <div class="d-none d-lg-block">
-                                <figure>
-                                    <a href="http://rounds.brideassociation.com/" target="_blank"
-                                        aria-label="go to bride association website (open in another tab)"
-                                        rel="noopener">
-                                        <img class="img-centered" id="bride-association-link"
-                                            src="{{ MEDIA_URL }}images/home/logo-BRIDE-2018.png"
-                                            alt="Bride association logo">
-                                    </a>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Profile Photo with quote -->
-
-                    <div class="row no-gutters">
-                        <div id="marco_quote" class="d-none d-lg-block col-lg">
-                            <blockquote class="blockquote">
-                                <p>{{ content.middle_text }}</p>
-                            </blockquote>
+                        <div class="col-12 awarded_photo">
+                            <img class="shadow mx-3" src="{{ MEDIA_URL }}images/home/awarded-photo.jpeg" alt="grandson and grandmother thrilled with the wedding">
                         </div>
                     </div>
                 </div>
-                <div class="d-none d-xl-block col-5-xl">
-                    <figure>
-                        <div class="profile_photo_mdContent" aria-labelledby="rio-photo">
-                            <h1 id="rio-photo"><i class="fas fa-camera-retro"></i> FOTÓGRAFO ATUANDO EM TODO BRASIL.
-                            </h1>
-                            <img class="img-centered" id="profile_photo_homePg"
-                                src="{{ MEDIA_URL }}images/home/{{ content.middle_picture }}"
-                                alt="Marco Neves Profile Photo">
+
+                <div class="col-12 col-md-6 awarded-text">
+
+                    <div class="row no-gutters text-center">
+                        <div class="col-12">
+                            <p class="my-5">
+                                Fotógrafo premiado pela Bride association
+                                uma das mais concorridas associações no mundo
+                            </p>
                         </div>
-                    </figure>
+                    </div>
+
+                    <div class="row no-gutters logo_bride d-none d-lg-block">
+                        <div class="col-12 content-alignment">
+                            <a href="http://rounds.brideassociation.com/" target="_blank"
+                            aria-label="go to bride association website (open in another tab)"
+                            rel="noopener">
+                                <img src="{{ MEDIA_URL }}images/home/logo-BRIDE-2018.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
+
+            <div class="row no-gutters mt-5">
+
+                <div class="col-12 col-md-6 text-right middle-text">
+                    <p class="ml-5">
+                        {{ content.middle_text }}
+                    </p>
+                </div>
+
+                <div class="col-12 col-md-6 avatar_photo text-center">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h1 id="rio-photo">
+                                <i class="fas fa-camera-retro"></i> FOTÓGRAFO ATUANDO EM TODO BRASIL.
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <img class="img-centered" src="{{ MEDIA_URL }}images/home/{{ content.middle_picture }}" alt="Marco Neves Profile Photo">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            
         </section>
 
         <!-- Portfolio Section: Includes three photo links to album pages and the grid system from Bootstrap 4 -->
@@ -113,7 +112,7 @@
                 and family photos portfolio</h2>
             <figure>
                 <div class="row no-gutters portfolio-links portfolio-link-outer d-none d-lg-block">
-                    <div class="col-lg">
+                    <div class="col-lg-12">
                         <div class="row no-gutters">
 
                             <!-- Pre-weddings link -->
@@ -172,6 +171,8 @@
             </figure>
             <hr>
         </section>
+
+        {% include 'home/includes/portfolio_section_mobile.html' %}
 
         <!-- Testimonials section: Includes three pictures with three testimonials and couple names 
         and the grid system from Bootstrap 4 -->

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'portfolio',
 
     # The following apps are required for Allauth:
     'django.contrib.sites',

@@ -17,12 +17,30 @@ class Home_page_content(models.Model):
         *get_friendly_name: Display the object's friendly name.
     """
 
-    carousell_photos = jsonfield.JSONField(null=True)
+    carousell_photo_1 = models.ImageField(null=True, blank=True,
+                                          upload_to='home/carousell/')
+    carousell_photo_2 = models.ImageField(null=True, blank=True,
+                                          upload_to='home/carousell/')
+    carousell_photo_3 = models.ImageField(null=True, blank=True,
+                                          upload_to='home/carousell/')
     middle_text = models.CharField(null=True, max_length=1000)
-    middle_picture = models.TextField(null=True)
-    prew_picture = models.TextField(null=True)
-    w_picture = models.TextField(null=True)
-    fam_picture = models.TextField(null=True)
+    middle_picture = models.ImageField(null=True, blank=True,
+                                       upload_to='home/middle_picture/')
+    prew_picture = models.ImageField(null=True, blank=True,
+                                     upload_to='home/portfolio/')
+    w_picture = models.ImageField(null=True, blank=True,
+                                  upload_to='home/portfolio/')
+    fam_picture = models.ImageField(null=True, blank=True,
+                                    upload_to='home/portfolio/')
     first_testimonial = jsonfield.JSONField(null=True)
+    first_testimonial_pic = models.ImageField(null=True,
+                                              blank=True,
+                                              upload_to='home/testimonials/')
     second_testimonial = jsonfield.JSONField(null=True)
+    second_testimonial_pic = models.ImageField(null=True,
+                                               blank=True,
+                                               upload_to='home/testimonials/')
     third_testimonial = jsonfield.JSONField(null=True)
+    third_testimonial_pic = models.ImageField(null=True,
+                                              blank=True,
+                                              upload_to='home/testimonials/')

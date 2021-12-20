@@ -7,7 +7,8 @@ class HomeAdmin(admin.ModelAdmin):
     Sort and Displays product table in Admin interface.
     """
 
-    list_display = ('carousell_photos',
+    list_display = ('id',
+                    'carousell_photo_1',
                     'middle_text',
                     'middle_picture',)
 

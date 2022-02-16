@@ -22,9 +22,23 @@ class Album(models.Model):
     pre_desc = models.CharField(null=True, max_length=500)
     date = models.DateField(null=True)
     place = models.CharField(null=True, max_length=500)
-    cover = models.ImageField(blank=True, null=True,
-                              upload_to='portfolio/covers/')
+    cover = models.ImageField(blank=True, null=True, upload_to="portfolio/covers/")
     description = models.TextField(null=True)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the lineitem total
+        and update the order total.
+        """
+        album_type = self.type
+        folder_type = album_type.replace(" ", "_")
+        album_title = self.title
+        folder_name = album_title.replace(" ", "_")
+
+        for field in self._meta.fields:
+            if field.name == 'cover':
+                field.upload_to = f"portfolio/covers/{folder_type}/{folder_name}"
+        super(Album, self).save()
 
     def __str__(self):
         return self.title

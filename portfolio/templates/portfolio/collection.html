@@ -3,11 +3,32 @@
 
 <!-- Custom css -->
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/weddings.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/collections.css' %}">
 {% endblock %}
 
 {% block content %}
+    <!-- 2.2.Album heading and quote-->
+    <section class="form">
+        <div id="collection-album">
+            <div class="row no-gutters">
+                <div class="col">
+                    <div class="row no-gutters">
+                        <div class="col">
+                            <h2 id="collection-album-header">{{ catg.friendly_name }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="form" aria-labelledby="weddings-portfolio-heading">
+        {% for album in albums %}
+            <p >{{ album.title }}</p>
+        {% endfor %}
+    </section>
+
+    <!-- <section class="form" aria-labelledby="weddings-portfolio-heading">
         <div class="row">
             <div class="col-6">
                 <form action="{% url 'portfolio' %}" method="POST" enctype="multipart/form-data">
@@ -18,9 +39,9 @@
                 </form>
             </div>
         </div>
-    </section>
+    </section> -->
 {% endblock %}
 
 {% block postloadjs %}
-    <script src="{% static 'home/js/home.js' %}"></script>
+    <script src="{% static 'portfolio/js/collections.js' %}"></script>
 {% endblock %}

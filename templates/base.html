@@ -54,12 +54,12 @@
                             Portifólio
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown-lg-sc">
-                            <a class="dropdown-item" href="{% url 'portfolio' %}"
-                                aria-label="Go to weddings portfolio">Casamentos</a>
-                            <a class="dropdown-item" href=""
-                                aria-label="Go to pre-weddings portfolio">Pre-Weddings</a>
-                            <a class="dropdown-item" href="" aria-label="Go to family photo portfolio">Fotos
-                                de família</a>
+                            {% for category in categories %}
+                                <a class="dropdown-item" href="{% url 'portfolio' %}?category={{ category }}"
+                                    aria-label="Go to {{ category }} portfolio">
+                                    {{ category.friendly_name }}
+                                </a>
+                            {% endfor %}
                         </div>
                     </li>
                     <li class="nav-item">

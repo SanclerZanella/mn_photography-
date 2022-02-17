@@ -17,7 +17,7 @@ class Album(models.Model):
         *get_friendly_name: Display the object's friendly name.
     """
 
-    type = models.CharField(null=True, max_length=25)
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     title = models.CharField(null=True, max_length=150)
     pre_desc = models.CharField(null=True, max_length=500)
     date = models.DateField(null=True)
@@ -30,7 +30,7 @@ class Album(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        album_type = self.type
+        album_type = self.category.name
         folder_type = album_type.replace(" ", "_")
         album_title = self.title
         folder_name = album_title.replace(" ", "_")
@@ -67,7 +67,7 @@ class AlbumPhoto(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        album_type = self.album.type
+        album_type = self.album.category.name
         folder_type = album_type.replace(" ", "_")
         album_title = self.album.title
         folder_name = album_title.replace(" ", "_")
@@ -79,3 +79,18 @@ class AlbumPhoto(models.Model):
 
     def __str__(self):
         return self.album.title
+
+
+class Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name

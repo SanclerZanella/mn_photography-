@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home',
     'portfolio',
     'crispy_forms',
+    'widget_tweaks',
 
     # The following apps are required for Allauth:
     'django.contrib.sites',
@@ -79,6 +80,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'portfolio.context.categories'
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',

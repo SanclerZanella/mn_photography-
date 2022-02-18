@@ -18,7 +18,7 @@ def portfolio(request):
     template = 'portfolio/collection.html'
     context = {
         'albums': albums,
-        'catg': catg
+        'catg': catg,
     }
 
     return render(request, template, context)

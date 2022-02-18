@@ -8,7 +8,7 @@
 
 {% block content %}
     <!-- 2.2.Album heading and quote-->
-    <section class="form">
+    <section class="">
         <div id="collection-album">
             <div class="row no-gutters">
                 <div class="col">
@@ -22,10 +22,36 @@
         </div>
     </section>
 
-    <section class="form" aria-labelledby="weddings-portfolio-heading">
-        {% for album in albums %}
-            <p >{{ album.title }}</p>
-        {% endfor %}
+    <section aria-labelledby="portfolio">
+        <h2 id="portfolio" class="sr-only">Albums</h2>
+        <figure>
+            <div class="row no-gutters portfolio-albums">
+                {% for album in albums %}
+                    <div class="col-md-5 col-lg-4">
+                        <div class="hovereffect">
+                            <a href=""
+                                aria-label="Go to {{ album.title }} album">
+                                <img src="{{ MEDIA_URL }}{{ album.cover }}"
+                                    alt="{{ album.title }} album">
+                                <div class="overlay" aria-labelledby="{{ album.title }}_photos">
+                                    <h2 id="{{ album.title }}_photos">{{ album.title }}</h2>
+                                    <p>
+                                        {{ album.pre_desc }}
+                                    </p>
+                                    {% if catg.name == 'wedding' %}
+                                        <p>
+                                            {{ album.date|date:"d / m / Y" }}
+                                        </p>
+                                    {% endif %}
+                                    <p>
+                                        <span><i class="fas fa-map-marker-alt"></i></span> {{ album.place }}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+        </figure>
     </section>
 
     <!-- <section class="form" aria-labelledby="weddings-portfolio-heading">

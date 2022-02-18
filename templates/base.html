@@ -116,7 +116,7 @@
             <div class="col-12 col-md-6 col-lg-2 text-center text-lg-left">
                 <ul>
                     <li>
-                        <a href="" aria-label="go to land page">
+                        <a href="{% url 'home' %}" aria-label="go to land page">
                             <h3>Início</h3>
                         </a>
                     </li>
@@ -137,21 +137,14 @@
                     <li>
                         <h3>Portfólio</h3>
                     </li>
-                    <li>
-                        <a href="" aria-label="go to weddings photos page">
-                            <p>Casamentos</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" aria-label="go to pre wedding photos page">
-                            <p>Pre-Weddings</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" aria-label="go to family photos page">
-                            <p>Fotos de Família</p>
-                        </a>
-                    </li>
+                    {% for category in categories %}
+                        <li class="mt-2">
+                            <a href="{% url 'portfolio' %}?category={{ category }}"
+                                aria-label="Go to {{ category }} portfolio">
+                                {{ category.friendly_name }}
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-12 col-md-6 col-lg-6 text-center text-md-right text-lg-center mt-5 mb-5">

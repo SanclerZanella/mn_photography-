@@ -29,7 +29,7 @@
                 {% for album in albums %}
                     <div class="col-md-5 col-lg-4">
                         <div class="hovereffect">
-                            <a href=""
+                            <a href="{% url 'album' album.id %}"
                                 aria-label="Go to {{ album.title }} album">
                                 <img src="{{ MEDIA_URL }}{{ album.cover }}"
                                     alt="{{ album.title }} album">

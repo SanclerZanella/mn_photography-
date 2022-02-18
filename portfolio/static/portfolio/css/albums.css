@@ -1,0 +1,18 @@
+.breadcrumb-container {
+    margin-top: 5rem;
+}
+
+.couple-name h2 {
+    text-align: center;
+    font-family: "Arizonia", sans-serif;
+    font-size: 50px;
+}
+
+.couple-name p {
+    text-align: center;
+    margin: 0 20px;
+}
+
+/* .image {
+    margin: 0.5rem;
+} */

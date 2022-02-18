@@ -59,7 +59,7 @@ class AlbumPhoto(models.Model):
         *get_friendly_name: Display the object's friendly name.
     """
 
-    album = models.ForeignKey(Album, default=None, on_delete=models.CASCADE)
+    album = models.ForeignKey(Album, default=None, on_delete=models.CASCADE, related_name='lineitems')
     photos = models.ImageField(upload_to="portfolio/albums/")
 
     def save(self, *args, **kwargs):

@@ -24,6 +24,18 @@ def portfolio(request):
     return render(request, template, context)
 
 
+def album(request, album_id):
+    '''
+    '''
+    album = Album.objects.get(id=album_id)
+    template = 'portfolio/album.html'
+    context = {
+        'album': album,
+    }
+
+    return render(request, template, context)
+
+
 # def portfolio(request):
 #     """
 #     A view to render the portfolio page

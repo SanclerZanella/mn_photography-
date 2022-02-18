@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Custom css -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/albums.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Photo Album: Includes Image links that opens a photo carousel in modal from Bootstrap 4-->
+
+    <section class="breadcrumb-container" aria-labelledby="breadcrumb-nav">
+        <h2 id="breadcrumb-nav" class="sr-only">Breadcrumb navigation</h2>
+        <div class="row no-gutters photo-container">
+            <div class="col">
+
+                <!-- 2.1.Breadcrumb from Bootstrap 4-->
+
+                <div class="row no-gutters">
+                    <div class="col">
+                        <div class="breadcrumb-album">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{% url 'portfolio' %}?category={{ album.category }}"
+                                            aria-label="">{{ album.category.friendly_name }}</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ album }}<span class="sr-only">(current page)</span></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Album heading -->
+    <section aria-labelledby="album-heading">
+        <h2 id="album-heading" class="sr-only">{{ album }}</h2>
+        <div class="row no-gutters couple-name">
+            <div class="col">
+                <h2>{{ album }}</h2>
+                <p>
+                    {{ album.description }}
+                </p>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="row no-gutters">
+            {% for album in album.lineitems.all %}
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-5 image">
+                        <img src="{{ MEDIA_URL }}{{ album.photos }}" alt="">
+                    </div>
+                {% else %}
+                    <div class="col-7 image">
+                        <img src="{{ MEDIA_URL }}{{ album.photos }}" alt="">
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Photo Grid -->
+    <!-- <div class="row no-gutters">
+        {% for album in album.lineitems.all %}
+            {% if forloop.counter|divisibleby:2 %}
+                <div class="col-6">
+                    <img src="{{ MEDIA_URL }}{{ album.photos }}" style="width:50%">
+                </div>
+            {% elif forloop.counter|divisibleby:3 %}
+                <div class="col-3">
+                    <img src="{{ MEDIA_URL }}{{ album.photos }}" style="width:50%">
+                </div>
+            {% else %}
+                <div class="col-3">
+                    <img src="{{ MEDIA_URL }}{{ album.photos }}" style="width:25%">
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div> -->
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'portfolio/js/collections.js' %}"></script>
+{% endblock %}

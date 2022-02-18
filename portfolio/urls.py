@@ -5,4 +5,5 @@ from . import views
 # Base url for this app and urls for other functions in this app
 urlpatterns = [
     path('', views.portfolio, name='portfolio'),
+    path('album/<int:album_id>', views.album, name='album'),
 ]

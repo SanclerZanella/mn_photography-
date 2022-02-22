@@ -48,7 +48,7 @@
         </div>
     </section>
 
-    <section class="mb-5">
+    <section class="mb-3">
         {% for group in photos_gr %}
             <div class="row no-gutters photo_group">
                 
@@ -58,13 +58,47 @@
 
                             {% if group.0 is not None %}
                                 <div class="col-12">
-                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.0 }}" alt="">
+                                    <img class="album_photo w-100 h-100 img-centered photo_{{ group.0.position }}" data-toggle="modal" data-target="#item_{{ group.0.position }}" src="{{ MEDIA_URL }}{{ group.0.photo }}" alt="photo {{ group.0.position }}">
+
+                                    <!-- Modal {{ group.0.position }} -->
+                                    <div class="modal fade" id="item_{{ group.0.position }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="w-100 h-100 img-centered photo_{{ group.0.position }}" src="{{ MEDIA_URL }}{{ group.0.photo }}" alt="photo {{ group.0.position }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             {% endif %}
                             
                             {% if group.1 is not None %}
                                 <div class="col-12">
-                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.1 }}" alt="">
+                                    <img class="album_photo w-100 h-100 img-centered photo_{{ group.1.position }}" data-toggle="modal" data-target="#item_{{ group.1.position }}" src="{{ MEDIA_URL }}{{ group.1.photo }}" alt="photo {{ group.1.position }}">
+
+                                    <!-- Modal {{ group.1.position }} -->
+                                    <div class="modal fade" id="item_{{ group.1.position }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="w-100 h-100 img-centered photo_{{ group.1.position }}" src="{{ MEDIA_URL }}{{ group.1.photo }}" alt="photo {{ group.1.position }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             {% endif %}
 
@@ -74,7 +108,24 @@
                 
                 {% if group.2 is not None %}
                     <div class="col-8">
-                        <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.2 }}" alt="">
+                        <img class="album_photo w-100 h-100 img-centered photo_{{ group.2.position }}" data-toggle="modal" data-target="#item_{{ group.2.position }}" src="{{ MEDIA_URL }}{{ group.2.photo }}" alt="photo {{ group.2.position }}">
+
+                        <!-- Modal {{ group.2.position }} -->
+                        <div class="modal fade" id="item_{{ group.2.position }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img class="w-100 h-100 img-centered photo_{{ group.2.position }}" src="{{ MEDIA_URL }}{{ group.2.photo }}" alt="photo {{ group.2.position }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 {% endif %}
                 
@@ -84,19 +135,70 @@
                             
                             {% if group.3 is not None %}
                                 <div class="col-4">
-                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.3 }}" alt="">
+                                    <img class="album_photo w-100 h-100 img-centered photo_{{ group.3.position }}" data-toggle="modal" data-target="#item_{{ group.3.position }}" src="{{ MEDIA_URL }}{{ group.3.photo }}" alt="photo {{ group.3.position }}">
+
+                                    <!-- Modal {{ group.3.position }} -->
+                                    <div class="modal fade" id="item_{{ group.3.position }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="w-100 h-100 img-centered photo_{{ group.3.position }}" src="{{ MEDIA_URL }}{{ group.3.photo }}" alt="photo {{ group.3.position }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             {% endif %}
                             
                             {% if group.4 is not None %}
                                 <div class="col-4">
-                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.4 }}" alt="">
+                                    <img class="album_photo w-100 h-100 img-centered photo_{{ group.4.position }}" src="{{ MEDIA_URL }}{{ group.4.photo }}" data-toggle="modal" data-target="#item_{{ group.4.position }}" alt="photo {{ group.4.position }}">
+
+                                    <!-- Modal {{ group.4.position }} -->
+                                    <div class="modal fade" id="item_{{ group.4.position }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="w-100 h-100 img-centered photo_{{ group.4.position }}" src="{{ MEDIA_URL }}{{ group.4.photo }}" alt="photo {{ group.4.position }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             {% endif %}
                             
                             {% if group.5 is not None %}
                                 <div class="col-4">
-                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.5 }}" alt="">
+                                    <img class="album_photo w-100 h-100 img-centered photo_{{ group.5.position }}" data-toggle="modal" data-target="#item_{{ group.5.position }}" src="{{ MEDIA_URL }}{{ group.5.photo }}" alt="photo {{ group.5.position }}">
+
+                                    <!-- Modal {{ group.5.position }} -->
+                                    <div class="modal fade" id="item_{{ group.5.position }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="w-100 h-100 img-centered photo_{{ group.5.position }}" src="{{ MEDIA_URL }}{{ group.5.photo }}" alt="photo {{ group.5.position }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             {% endif %}
 
@@ -106,7 +208,24 @@
                 
                 {% if group.6 is not None %}
                     <div class="col-12">
-                        <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.6 }}" alt="">
+                        <img class="album_photo w-100 h-100 img-centered photo_{{ group.6.position }}" data-toggle="modal" data-target="#item_{{ group.6.position }}" src="{{ MEDIA_URL }}{{ group.6.photo }}" alt="photo {{ group.6.position }}">
+
+                        <!-- Modal {{ group.6.position }} -->
+                        <div class="modal fade" id="item_{{ group.6.position }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img class="w-100 h-100 img-centered photo_{{ group.6.position }}" src="{{ MEDIA_URL }}{{ group.6.photo }}" alt="photo {{ group.6.position }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 {% endif %}
                 
@@ -116,19 +235,70 @@
 
                             {% if group.7 is not None %}
                                 <div class="col-4">
-                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.7 }}" alt="">
+                                    <img class="album_photo w-100 h-100 img-centered photo_{{ group.7.position }}" data-toggle="modal" data-target="#item_{{ group.7.position }}" src="{{ MEDIA_URL }}{{ group.7.photo }}" alt="photo {{ group.7.position }}">
+
+                                    <!-- Modal {{ group.7.position }} -->
+                                    <div class="modal fade" id="item_{{ group.7.position }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="w-100 h-100 img-centered photo_{{ group.7.position }}" src="{{ MEDIA_URL }}{{ group.7.photo }}" alt="photo {{ group.7.position }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             {% endif %}
                             
                             {% if group.8 is not None %}
                                 <div class="col-4">
-                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.8 }}" alt="">
+                                    <img class="album_photo w-100 h-100 img-centered photo_{{ group.8.position }}" data-toggle="modal" data-target="#item_{{ group.8.position }}" src="{{ MEDIA_URL }}{{ group.8.photo }}" alt="photo {{ group.8.position }}">
+
+                                    <!-- Modal {{ group.8.position }} -->
+                                    <div class="modal fade" id="item_{{ group.8.position }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="w-100 h-100 img-centered photo_{{ group.8.position }}" src="{{ MEDIA_URL }}{{ group.8.photo }}" alt="photo {{ group.8.position }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             {% endif %}
                             
                             {% if group.9 is not None %}
                                 <div class="col-4">
-                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.9 }}" alt="">
+                                    <img class="album_photo w-100 h-100 img-centered photo_{{ group.9.position }}" data-toggle="modal" data-target="#item_{{ group.9.position }}" src="{{ MEDIA_URL }}{{ group.9.photo }}" alt="photo {{ group.9.position }}">
+
+                                    <!-- Modal {{ group.9.position }} -->
+                                    <div class="modal fade" id="item_{{ group.9.position }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="w-100 h-100 img-centered photo_{{ group.9.position }}" src="{{ MEDIA_URL }}{{ group.9.photo }}" alt="photo {{ group.9.position }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             {% endif %}
 

@@ -30,3 +30,31 @@
 .photo_group img {
     border: 1px solid #fff;
 }
+
+.album_photo {
+    cursor: pointer;
+}
+
+.album_photo:hover {
+    opacity: .7;
+    transform: scale(.980);
+    overflow: hidden;
+}
+
+.modal {
+    margin: 0 8rem;
+}
+
+.modal-header {
+    border-bottom: 1px solid #ff5b00;
+    padding: 0;
+}
+
+.modal-content {
+    width: 200%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 0;
+    border-radius: 0;
+    position: relative;
+    right: 360px;
+}

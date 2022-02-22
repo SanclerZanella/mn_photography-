@@ -56,9 +56,14 @@ def album(request, album_id):
 
     all_photos = list()
     for ab in AlbumPhoto.objects.filter(album=album):
-        all_photos.append(ab.photos)
+        photo_dict = {
+            'photo': ab.photos,
+            'position': ab.position
+        }
+        all_photos.append(photo_dict)
 
     photo_group = [all_photos[i:i + 10] for i in range(0, len(all_photos), 10)]
+    print(photo_group)
 
     template = 'portfolio/album.html'
     context = {

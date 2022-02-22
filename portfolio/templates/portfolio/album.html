@@ -48,20 +48,96 @@
         </div>
     </section>
 
-    <section>
-        <div class="row no-gutters">
-            {% for album in album.lineitems.all %}
-                {% if forloop.counter|divisibleby:2 %}
-                    <div class="col-5 image">
-                        <img src="{{ MEDIA_URL }}{{ album.photos }}" alt="">
-                    </div>
-                {% else %}
-                    <div class="col-7 image">
-                        <img src="{{ MEDIA_URL }}{{ album.photos }}" alt="">
+    <section class="mb-5">
+        {% for group in photos_gr %}
+            <div class="row no-gutters photo_group">
+                
+                {% if group.0 is not None or group.1 is not None %}
+                    <div class="col-4">
+                        <div class="row no-gutters">
+
+                            {% if group.0 is not None %}
+                                <div class="col-12">
+                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.0 }}" alt="">
+                                </div>
+                            {% endif %}
+                            
+                            {% if group.1 is not None %}
+                                <div class="col-12">
+                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.1 }}" alt="">
+                                </div>
+                            {% endif %}
+
+                        </div>
                     </div>
                 {% endif %}
-            {% endfor %}
-        </div>
+                
+                {% if group.2 is not None %}
+                    <div class="col-8">
+                        <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.2 }}" alt="">
+                    </div>
+                {% endif %}
+                
+                {% if group.3 is not None or group.4 is not None or group.5 is not None %}
+                    <div class="col-12">
+                        <div class="row no-gutters">
+                            
+                            {% if group.3 is not None %}
+                                <div class="col-4">
+                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.3 }}" alt="">
+                                </div>
+                            {% endif %}
+                            
+                            {% if group.4 is not None %}
+                                <div class="col-4">
+                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.4 }}" alt="">
+                                </div>
+                            {% endif %}
+                            
+                            {% if group.5 is not None %}
+                                <div class="col-4">
+                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.5 }}" alt="">
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                {% endif %}
+                
+                {% if group.6 is not None %}
+                    <div class="col-12">
+                        <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.6 }}" alt="">
+                    </div>
+                {% endif %}
+                
+                {% if group.7 is not None or group.8 is not None or group.9 is not None %}
+                    <div class="col-12">
+                        <div class="row no-gutters">
+
+                            {% if group.7 is not None %}
+                                <div class="col-4">
+                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.7 }}" alt="">
+                                </div>
+                            {% endif %}
+                            
+                            {% if group.8 is not None %}
+                                <div class="col-4">
+                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.8 }}" alt="">
+                                </div>
+                            {% endif %}
+                            
+                            {% if group.9 is not None %}
+                                <div class="col-4">
+                                    <img class="w-100 h-100 img-centered" src="{{ MEDIA_URL }}{{ group.9 }}" alt="">
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        {% endfor %}
     </section>
 
     <!-- Photo Grid -->

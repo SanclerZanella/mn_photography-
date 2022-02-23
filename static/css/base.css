@@ -157,6 +157,15 @@ footer .col-lg-2 h3 {
     color: #fff;
 }
 
+footer .col-lg-2 button {
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-top: 0.8rem;
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+}
+
 footer .col-lg-2 a {
     text-decoration: none;
     color: #fff;
@@ -165,6 +174,15 @@ footer .col-lg-2 a {
 footer .col-lg-2 a:hover {
     font-weight: 800;
     text-decoration: underline;
+}
+
+footer .col-lg-2 button:hover {
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+footer .col-lg-2 button:focus {
+    outline: none;
 }
 
 .social-link {
@@ -188,6 +206,24 @@ footer .col-lg-2 a:hover {
 
 .copyright {
     color: #fff;
+}
+
+.btn {
+    border-radius: 0 !important;
+}
+
+.btn-shadow {
+    box-shadow: 5px 5px #000;
+}
+
+.btn-shadow:hover {
+    box-shadow: 2px 2px #000;
+}
+
+.btn-mn {
+    background-color: #ef5500;
+    color: #fff;
+    font-weight: 700;
 }
 
 /* ----------------------------------Media queries*/

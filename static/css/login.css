@@ -1,0 +1,30 @@
+.login_card {
+    background-color: #ef5400b6;
+    border-radius: 5%;
+    font-weight: 600;
+    border: 2px solid #fff;
+}
+
+.login_row {
+    margin-top: 2rem;
+}
+
+/* ----------------------------------Media queries*/
+
+@media (min-width: 1440px) {
+    .login_row {
+        margin-top: 15rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+    .login_row {
+        margin-top: 15rem;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .login_card {
+        border-radius: 0;
+    }
+}

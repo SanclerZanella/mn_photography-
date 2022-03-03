@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Album, AlbumPhoto, Category
 from .forms import AlbumForm
 
@@ -15,6 +16,18 @@ def portfolio(request):
             category_key = request.GET['category']
             albums = Album.objects.filter(category__name=category_key)
             catg = Category.objects.get(name=category_key)
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(albums, 5)
+
+    # Create pagination and define number of products per page
+    # use pagination to infinite scroll
+    try:
+        albums = paginator.page(page)
+    except PageNotAnInteger:
+        albums = paginator.page(1)
+    except EmptyPage:
+        albums = paginator.page(paginator.num_pages)
 
     form = AlbumForm()
     if request.method == 'POST':
@@ -51,6 +64,7 @@ def portfolio(request):
 
 def album(request, album_id):
     '''
+    A view to render the album page
     '''
     album = Album.objects.get(id=album_id)
 
@@ -63,7 +77,18 @@ def album(request, album_id):
         all_photos.append(photo_dict)
 
     photo_group = [all_photos[i:i + 10] for i in range(0, len(all_photos), 10)]
-    print(photo_group)
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(photo_group, 1)
+
+    # Create pagination and define number of products per page
+    # use pagination to infinite scroll
+    try:
+        photo_group = paginator.page(page)
+    except PageNotAnInteger:
+        photo_group = paginator.page(1)
+    except EmptyPage:
+        photo_group = paginator.page(paginator.num_pages)
 
     template = 'portfolio/album.html'
     context = {

@@ -1,0 +1,20 @@
+2022-03-03 13:41:32,672 - instabot version: 0.117.0 (bot) - INFO - Instabot version: 0.117.0 Started
+2022-03-03 13:41:32,673 - instabot version: 0.117.0 (bot) - DEBUG - Bot imported from C:\Python39\lib\site-packages\instabot\bot\bot.py
+2022-03-03 13:41:32,674 - instabot version: 0.117.0 (api_login) - INFO - Not yet logged in starting: PRE-LOGIN FLOW!
+2022-03-03 13:41:32,872 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: accounts/get_prefill_candidates/ returned response: <Response [200]>
+2022-03-03 13:41:33,070 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: qe/sync/ returned response: <Response [200]>
+2022-03-03 13:41:33,364 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: launcher/sync/ returned response: <Response [200]>
+2022-03-03 13:41:33,556 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: accounts/contact_point_prefill/ returned response: <Response [200]>
+2022-03-03 13:41:35,255 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: accounts/login/ returned response: <Response [400]>
+2022-03-03 13:41:35,255 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"challenge_required","challenge":{"url":"https://i.instagram.com/challenge/AXEW54cJXnNhyCG9S2vWCYGagkqNNfVxEphSbxcm666R48f21mD7eAZPVxvSqr38uhUV8A/ZwryHskvMn/","api_path":"/challenge/AXEW54cJXnNhyCG9S2vWCYGagkqNNfVxEphSbxcm666R48f21mD7eAZPVxvSqr38uhUV8A/ZwryHskvMn/","hide_webview_header":true,"lock":true,"logout":false,"native_flow":true,"flow_render_type":0},"status":"fail","error_type":"checkpoint_challenge_required"}'
+2022-03-03 13:41:35,256 - instabot version: 0.117.0 (api) - ERROR - Request returns 400 error!
+2022-03-03 13:41:35,257 - instabot version: 0.117.0 (api) - INFO - Instagram's error message: challenge_required
+2022-03-03 13:41:35,257 - instabot version: 0.117.0 (api) - INFO - Error type: checkpoint_challenge_required
+2022-03-03 13:41:35,259 - instabot version: 0.117.0 (api) - CRITICAL - Not logged in!
+2022-03-03 13:46:16,979 - instabot version: 0.117.0 (bot) - INFO - Instabot version: 0.117.0 Started
+2022-03-03 13:46:16,984 - instabot version: 0.117.0 (bot) - DEBUG - Bot imported from C:\Python39\lib\site-packages\instabot\bot\bot.py
+2022-03-03 13:46:16,987 - instabot version: 0.117.0 (api_login) - INFO - Not yet logged in starting: PRE-LOGIN FLOW!
+2022-03-03 13:46:17,163 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: accounts/get_prefill_candidates/ returned response: <Response [429]>
+2022-03-03 13:46:17,164 - instabot version: 0.117.0 (api) - DEBUG - Responsecode indicates error; response content: b'{"message":"Please wait a few minutes before you try again.","status":"fail"}'
+2022-03-03 13:46:17,165 - instabot version: 0.117.0 (api) - ERROR - Request returns 429 error!
+2022-03-03 13:46:17,167 - instabot version: 0.117.0 (api) - WARNING - That means 'too many requests'. I'll go to sleep for 5 minutes.

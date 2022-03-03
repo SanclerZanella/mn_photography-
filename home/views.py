@@ -6,6 +6,7 @@ def index(request):
     """
     A view to render the index page
     """
+
     content = Home_page_content.objects.all()
     template = 'home/index.html'
     context = {

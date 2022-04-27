@@ -288,10 +288,65 @@
                 <h2 id="instagram" class="sr-only">Section with photos from instagram that directs to Marco Neves
                     Photography instagram
                 </h2>
-                <figure>
+
+                <div id="carouselControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      {% for group in insta_groups %}
+                        {% if group|length == 8 %}
+                            <div class="carousel-item {% if forloop.counter0 == 0 %}active{%endif%}">
+                                <div class="row no-gutters">
+                                    <div class="col-12 mr-auto ml-auto">
+                                        <div class="row no-gutters instaRow">
+                                            <div class="col-3 instaImgContainer">
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.0 }}" alt="First slide">
+                                                <div class="middle">
+                                                    <div class="text">John Doe</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-3 instaImgContainer">
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.1 }}" alt="First slide">
+                                            </div>
+                                            <div class="col-3 instaImgContainer">
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.2 }}" alt="First slide">
+                                            </div>
+                                            <div class="col-3 instaImgContainer">
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.3 }}" alt="First slide">
+                                            </div>
+                                        </div>
+                                        <div class="row no-gutters instaRow">
+                                            <div class="col-3 instaImgContainer">
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.4 }}" alt="First slide">
+                                            </div>
+                                            <div class="col-3 instaImgContainer">
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.5 }}" alt="First slide">
+                                            </div>
+                                            <div class="col-3 instaImgContainer">
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.6 }}" alt="First slide">
+                                            </div>
+                                            <div class="col-3 instaImgContainer">
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.7 }}" alt="First slide">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %} 
+                      {% endfor %}
+                    </div>
+
+                    <a class="control-container" href="#carouselControls" role="button" data-slide="prev">
+                      <span class="carousel-control-prev carousel-control-prev-icon mt-auto mb-auto" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="control-container" href="#carouselControls" role="button" data-slide="next">
+                      <span class=" carousel-control-next carousel-control-next-icon mt-auto mb-auto" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                <!-- <figure>
                     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
                     <div class="elfsight-app-83080045-cafb-41d5-bb13-d866283ebf98"></div>
-                </figure>
+                </figure> -->
             </section>
 
             <section>

@@ -12,3 +12,11 @@ $('.portfolio_dropdown').click(() => {
         caret_up.addClass('hiden');
     }
 });
+
+$('.middle').children('p').text((_, text)=>{
+    if(text.length > 60) {
+        return $.trim(text).substring(0, 60) + "...";
+    } else {
+        return text
+    }
+});

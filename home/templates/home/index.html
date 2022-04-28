@@ -289,43 +289,538 @@
                     Photography instagram
                 </h2>
 
-                <div id="carouselControls" class="carousel slide" data-ride="carousel">
+                <div class="row no-gutters mt-5">
+                    <div class="col">
+                        <h2 class="text-center">Me siga no Instagram <i class="fab fa-instagram"></i></h2>
+                    </div>
+                </div>
+
+                <div id="carouselControls" class="carousel slide mt-3 mb-5" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner">
                       {% for group in insta_groups %}
                         {% if group|length == 8 %}
                             <div class="carousel-item {% if forloop.counter0 == 0 %}active{%endif%}">
                                 <div class="row no-gutters">
                                     <div class="col-12 mr-auto ml-auto">
+                                        
                                         <div class="row no-gutters instaRow">
-                                            <div class="col-3 instaImgContainer">
-                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.0 }}" alt="First slide">
+
+                                            <div class="col-3 instaImgContainer" data-toggle="modal" data-target="#modal_{{ group.0.insta_pk }}">
+
                                                 <div class="middle">
-                                                    <div class="text">John Doe</div>
+                                                    <span> <i class="far fa-heart"></i> {{ group.0.like_count }}</span> <span> <i class="far fa-comment"></i> {{ group.0.comment_count }}</span>
+                                                    <p>{{ group.0.caption_text }}</p>
                                                 </div>
+
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.0.picture }}" alt="First slide">
+                                                
                                             </div>
-                                            <div class="col-3 instaImgContainer">
-                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.1 }}" alt="First slide">
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal_{{ group.0.insta_pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+
+                                                            <h6 class="modal-title" id="exampleModalLabel">
+                                                                <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">
+                                                                    <i class="fab fa-instagram"></i> marconevesfotografia
+                                                                </a>
+                                                            </h6>
+
+                                                            <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-12 instPhotoContainer text-center">
+                                                                    <img src="{{ MEDIA_URL }}{{ group.0.picture }}" alt="{{ group.0.caption_text }}">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="row no-gutters mt-2 like-comment-count">
+
+                                                                <div class="col-6 text-left">
+                                                                    <span class="mr-5">{{ group.0.like_count }} Likes </span>
+                                                                </div>
+
+                                                                <div class="col-6 text-right">
+                                                                    <span class="ml-5">{{ group.0.comment_count }} Comentários</span>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row no-gutters mt-2">
+
+                                                                <div class="col-12">
+                                                                    <p> <span class="font-weight-bold instaUserName"> <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">marconevesfotografia</a> </span> {{ group.0.caption_text }}</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
-                                            <div class="col-3 instaImgContainer">
-                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.2 }}" alt="First slide">
+
+                                            <div class="col-3 instaImgContainer" data-toggle="modal" data-target="#modal_{{ group.1.insta_pk }}">
+
+                                                <div class="middle">
+                                                    <span> <i class="far fa-heart"></i> {{ group.1.like_count }}</span> <span> <i class="far fa-comment"></i> {{ group.1.comment_count }}</span>
+                                                    <p>{{ group.1.caption_text }}</p>
+                                                </div>
+
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.1.picture }}" alt="First slide">
+
                                             </div>
-                                            <div class="col-3 instaImgContainer">
-                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.3 }}" alt="First slide">
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal_{{ group.1.insta_pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+
+                                                            <h6 class="modal-title" id="exampleModalLabel">
+                                                                <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">
+                                                                    <i class="fab fa-instagram"></i> marconevesfotografia
+                                                                </a>
+                                                            </h6>
+
+                                                            <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-12 instPhotoContainer text-center">
+                                                                    <img src="{{ MEDIA_URL }}{{ group.1.picture }}" alt="{{ group.1.caption_text }}">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="row no-gutters mt-2 like-comment-count">
+
+                                                                <div class="col-6 text-left">
+                                                                    <span class="mr-5">{{ group.1.like_count }} Likes </span>
+                                                                </div>
+
+                                                                <div class="col-6 text-right">
+                                                                    <span class="ml-5">{{ group.1.comment_count }} Comentários</span>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row no-gutters mt-2">
+
+                                                                <div class="col-12">
+                                                                    <p> <span class="font-weight-bold instaUserName"> <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">marconevesfotografia</a> </span> {{ group.1.caption_text }}</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
+
+                                            <div class="col-3 instaImgContainer" data-toggle="modal" data-target="#modal_{{ group.2.insta_pk }}">
+
+                                                <div class="middle">
+                                                    <span> <i class="far fa-heart"></i> {{ group.2.like_count }}</span> <span> <i class="far fa-comment"></i> {{ group.2.comment_count }}</span>
+                                                    <p>{{ group.2.caption_text }}</p>
+                                                </div>
+
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.2.picture }}" alt="First slide">
+
+                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal_{{ group.2.insta_pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+
+                                                            <h6 class="modal-title" id="exampleModalLabel">
+                                                                <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">
+                                                                    <i class="fab fa-instagram"></i> marconevesfotografia
+                                                                </a>
+                                                            </h6>
+
+                                                            <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-12 instPhotoContainer text-center">
+                                                                    <img src="{{ MEDIA_URL }}{{ group.2.picture }}" alt="{{ group.2.caption_text }}">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="row no-gutters mt-2 like-comment-count">
+
+                                                                <div class="col-6 text-left">
+                                                                    <span class="mr-5">{{ group.2.like_count }} Likes </span>
+                                                                </div>
+
+                                                                <div class="col-6 text-right">
+                                                                    <span class="ml-5">{{ group.2.comment_count }} Comentários</span>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row no-gutters mt-2">
+
+                                                                <div class="col-12">
+                                                                    <p> <span class="font-weight-bold instaUserName"> <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">marconevesfotografia</a> </span> {{ group.2.caption_text }}</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="col-3 instaImgContainer" data-toggle="modal" data-target="#modal_{{ group.3.insta_pk }}">
+
+                                                <div class="middle">
+                                                    <span> <i class="far fa-heart"></i> {{ group.3.like_count }}</span> <span> <i class="far fa-comment"></i> {{ group.3.comment_count }}</span>
+                                                    <p>{{ group.3.caption_text }}</p>
+                                                </div>
+
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.3.picture }}" alt="First slide">
+
+                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal_{{ group.3.insta_pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+
+                                                            <h6 class="modal-title" id="exampleModalLabel">
+                                                                <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">
+                                                                    <i class="fab fa-instagram"></i> marconevesfotografia
+                                                                </a>
+                                                            </h6>
+
+                                                            <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-12 instPhotoContainer text-center">
+                                                                    <img src="{{ MEDIA_URL }}{{ group.3.picture }}" alt="{{ group.3.caption_text }}">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="row no-gutters mt-2 like-comment-count">
+
+                                                                <div class="col-6 text-left">
+                                                                    <span class="mr-5">{{ group.3.like_count }} Likes </span>
+                                                                </div>
+
+                                                                <div class="col-6 text-right">
+                                                                    <span class="ml-5">{{ group.3.comment_count }} Comentários</span>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row no-gutters mt-2">
+
+                                                                <div class="col-12">
+                                                                    <p> <span class="font-weight-bold instaUserName"> <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">marconevesfotografia</a> </span> {{ group.3.caption_text }}</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+
                                         </div>
+
                                         <div class="row no-gutters instaRow">
-                                            <div class="col-3 instaImgContainer">
-                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.4 }}" alt="First slide">
+
+                                            <div class="col-3 instaImgContainer" data-toggle="modal" data-target="#modal_{{ group.4.insta_pk }}">
+
+                                                <div class="middle">
+                                                    <span> <i class="far fa-heart"></i> {{ group.4.like_count }}</span> <span> <i class="far fa-comment"></i> {{ group.4.comment_count }}</span>
+                                                    <p>{{ group.4.caption_text }}</p>
+                                                </div>
+
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.4.picture }}" alt="First slide">
+
                                             </div>
-                                            <div class="col-3 instaImgContainer">
-                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.5 }}" alt="First slide">
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal_{{ group.4.insta_pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+
+                                                            <h6 class="modal-title" id="exampleModalLabel">
+                                                                <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">
+                                                                    <i class="fab fa-instagram"></i> marconevesfotografia
+                                                                </a>
+                                                            </h6>
+
+                                                            <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-12 instPhotoContainer text-center">
+                                                                    <img src="{{ MEDIA_URL }}{{ group.4.picture }}" alt="{{ group.4.caption_text }}">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="row no-gutters mt-2 like-comment-count">
+
+                                                                <div class="col-6 text-left">
+                                                                    <span class="mr-5">{{ group.4.like_count }} Likes </span>
+                                                                </div>
+
+                                                                <div class="col-6 text-right">
+                                                                    <span class="ml-5">{{ group.4.comment_count }} Comentários</span>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row no-gutters mt-2">
+
+                                                                <div class="col-12">
+                                                                    <p> <span class="font-weight-bold instaUserName"> <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">marconevesfotografia</a> </span> {{ group.4.caption_text }}</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
-                                            <div class="col-3 instaImgContainer">
-                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.6 }}" alt="First slide">
+
+                                            <div class="col-3 instaImgContainer" data-toggle="modal" data-target="#modal_{{ group.5.insta_pk }}">
+
+                                                <div class="middle">
+                                                    <span> <i class="far fa-heart"></i> {{ group.5.like_count }}</span> <span> <i class="far fa-comment"></i> {{ group.5.comment_count }}</span>
+                                                    <p>{{ group.5.caption_text }}</p>
+                                                </div>
+
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.5.picture }}" alt="First slide">
+
                                             </div>
-                                            <div class="col-3 instaImgContainer">
-                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.7 }}" alt="First slide">
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal_{{ group.5.insta_pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+
+                                                            <h6 class="modal-title" id="exampleModalLabel">
+                                                                <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">
+                                                                    <i class="fab fa-instagram"></i> marconevesfotografia
+                                                                </a>
+                                                            </h6>
+
+                                                            <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-12 instPhotoContainer text-center">
+                                                                    <img src="{{ MEDIA_URL }}{{ group.5.picture }}" alt="{{ group.5.caption_text }}">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="row no-gutters mt-2 like-comment-count">
+
+                                                                <div class="col-6 text-left">
+                                                                    <span class="mr-5">{{ group.5.like_count }} Likes </span>
+                                                                </div>
+
+                                                                <div class="col-6 text-right">
+                                                                    <span class="ml-5">{{ group.5.comment_count }} Comentários</span>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row no-gutters mt-2">
+
+                                                                <div class="col-12">
+                                                                    <p> <span class="font-weight-bold instaUserName"> <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">marconevesfotografia</a> </span> {{ group.5.caption_text }}</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
+
+                                            <div class="col-3 instaImgContainer" data-toggle="modal" data-target="#modal_{{ group.6.insta_pk }}">
+
+                                                <div class="middle">
+                                                    <span> <i class="far fa-heart"></i> {{ group.6.like_count }}</span> <span> <i class="far fa-comment"></i> {{ group.6.comment_count }}</span>
+                                                    <p>{{ group.6.caption_text }}</p>
+                                                </div>
+
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.6.picture }}" alt="First slide">
+
+                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal_{{ group.6.insta_pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+
+                                                            <h6 class="modal-title" id="exampleModalLabel">
+                                                                <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">
+                                                                    <i class="fab fa-instagram"></i> marconevesfotografia
+                                                                </a>
+                                                            </h6>
+
+                                                            <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-12 instPhotoContainer text-center">
+                                                                    <img src="{{ MEDIA_URL }}{{ group.6.picture }}" alt="{{ group.6.caption_text }}">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="row no-gutters mt-2 like-comment-count">
+
+                                                                <div class="col-6 text-left">
+                                                                    <span class="mr-5">{{ group.6.like_count }} Likes </span>
+                                                                </div>
+
+                                                                <div class="col-6 text-right">
+                                                                    <span class="ml-5">{{ group.6.comment_count }} Comentários</span>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row no-gutters mt-2">
+
+                                                                <div class="col-12">
+                                                                    <p> <span class="font-weight-bold instaUserName"> <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">marconevesfotografia</a> </span> {{ group.6.caption_text }}</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="col-3 instaImgContainer" data-toggle="modal" data-target="#modal_{{ group.7.insta_pk }}">
+
+                                                <div class="middle">
+                                                    <span> <i class="far fa-heart"></i> {{ group.7.like_count }}</span> <span> <i class="far fa-comment"></i> {{ group.7.comment_count }}</span>
+                                                    <p>{{ group.7.caption_text }}</p>
+                                                </div>
+
+                                                <img class="d-block w-100 instaImg" src="{{ MEDIA_URL }}{{ group.7.picture }}" alt="First slide">
+
+                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal_{{ group.7.insta_pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+
+                                                            <h6 class="modal-title" id="exampleModalLabel">
+                                                                <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">
+                                                                    <i class="fab fa-instagram"></i> marconevesfotografia
+                                                                </a>
+                                                            </h6>
+
+                                                            <button type="button" class="close ml-5" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-12 instPhotoContainer text-center">
+                                                                    <img src="{{ MEDIA_URL }}{{ group.7.picture }}" alt="{{ group.7.caption_text }}">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="row no-gutters mt-2 like-comment-count">
+
+                                                                <div class="col-6 text-left">
+                                                                    <span class="mr-5">{{ group.7.like_count }} Likes </span>
+                                                                </div>
+
+                                                                <div class="col-6 text-right">
+                                                                    <span class="ml-5">{{ group.7.comment_count }} Comentários</span>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row no-gutters mt-2">
+
+                                                                <div class="col-12">
+                                                                    <p> <span class="font-weight-bold instaUserName"> <a class="instaLink" href="https://www.instagram.com/marconevesfotografia/?hl=en" target="_blank" rel="external" aria-label="go to instagram">marconevesfotografia</a> </span> {{ group.7.caption_text }}</p>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

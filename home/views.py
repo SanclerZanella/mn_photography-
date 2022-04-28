@@ -95,7 +95,7 @@ def index(request):
     insta_content = Instagram_mosaic.objects.all()
     all_insta_pics = list()
     for pic in insta_content:
-        all_insta_pics.append(pic.picture)
+        all_insta_pics.append(pic)
     insta_pics_group = [all_insta_pics[i:i + 8] for i in range(0, len(all_insta_pics), 8)]
 
     template = 'home/index.html'

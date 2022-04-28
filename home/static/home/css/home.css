@@ -254,7 +254,6 @@
     max-height: 100%;
     object-fit: cover;
     object-position: center;
-    cursor: pointer;
 }
 
 .middle {
@@ -266,6 +265,7 @@
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
+    font-weight: 600;
 }
 
 .instaImg:hover {
@@ -279,6 +279,7 @@
     position: relative;
     overflow: hidden;
     height: 14em;
+    cursor: pointer;
 }
 
 .instaImgContainer:hover .image {
@@ -295,6 +296,36 @@
    
 .carousel-control-next-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff5b00' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.instaLink:hover {
+    text-decoration: none;
+    font-weight: 600;
+
+}
+
+.modal-body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.instPhotoContainer {
+    overflow: hidden;
+}
+
+.instPhotoContainer img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.like-comment-count {
+    font-weight: 600;
+}
+
+.instaUserName {
+    font-size: small;
 }
 
 /* ----------------------------------Media Queries */

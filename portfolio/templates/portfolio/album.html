@@ -70,7 +70,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img loading="lazy" class="w-100 h-100 img-centered photo_{{ group.0.position }}" src="{{ MEDIA_URL }}{{ group.0.photo }}" alt="photo {{ group.0.position }}">
+                                                    <img loading="lazy" class="albumPhotoModal w-100 h-100 img-centered photo_{{ group.0.position }}" src="{{ MEDIA_URL }}{{ group.0.photo }}" alt="photo {{ group.0.position }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -93,7 +93,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img loading="lazy" class="w-100 h-100 img-centered photo_{{ group.1.position }}" src="{{ MEDIA_URL }}{{ group.1.photo }}" alt="photo {{ group.1.position }}">
+                                                    <img loading="lazy" class="albumPhotoModal w-100 h-100 img-centered photo_{{ group.1.position }}" src="{{ MEDIA_URL }}{{ group.1.photo }}" alt="photo {{ group.1.position }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -120,7 +120,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <img loading="lazy" class="w-100 h-100 img-centered photo_{{ group.2.position }}" src="{{ MEDIA_URL }}{{ group.2.photo }}" alt="photo {{ group.2.position }}">
+                                        <img loading="lazy" class="albumPhotoModal w-100 h-100 img-centered photo_{{ group.2.position }}" src="{{ MEDIA_URL }}{{ group.2.photo }}" alt="photo {{ group.2.position }}">
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img loading="lazy" class="w-100 h-100 img-centered photo_{{ group.3.position }}" src="{{ MEDIA_URL }}{{ group.3.photo }}" alt="photo {{ group.3.position }}">
+                                                    <img loading="lazy" class="albumPhotoModal w-100 h-100 img-centered photo_{{ group.3.position }}" src="{{ MEDIA_URL }}{{ group.3.photo }}" alt="photo {{ group.3.position }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -170,7 +170,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img loading="lazy" class="w-100 h-100 img-centered photo_{{ group.4.position }}" src="{{ MEDIA_URL }}{{ group.4.photo }}" alt="photo {{ group.4.position }}">
+                                                    <img loading="lazy" class="albumPhotoModal w-100 h-100 img-centered photo_{{ group.4.position }}" src="{{ MEDIA_URL }}{{ group.4.photo }}" alt="photo {{ group.4.position }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -193,7 +193,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img loading="lazy" class="w-100 h-100 img-centered photo_{{ group.5.position }}" src="{{ MEDIA_URL }}{{ group.5.photo }}" alt="photo {{ group.5.position }}">
+                                                    <img loading="lazy" class="albumPhotoModal w-100 h-100 img-centered photo_{{ group.5.position }}" src="{{ MEDIA_URL }}{{ group.5.photo }}" alt="photo {{ group.5.position }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -220,7 +220,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <img loading="lazy" class="w-100 h-100 img-centered photo_{{ group.6.position }}" src="{{ MEDIA_URL }}{{ group.6.photo }}" alt="photo {{ group.6.position }}">
+                                        <img loading="lazy" class="albumPhotoModal w-100 h-100 img-centered photo_{{ group.6.position }}" src="{{ MEDIA_URL }}{{ group.6.photo }}" alt="photo {{ group.6.position }}">
                                     </div>
                                 </div>
                             </div>
@@ -247,7 +247,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img loading="lazy" class="w-100 h-100 img-centered photo_{{ group.7.position }}" src="{{ MEDIA_URL }}{{ group.7.photo }}" alt="photo {{ group.7.position }}">
+                                                    <img loading="lazy" class="albumPhotoModal w-100 h-100 img-centered photo_{{ group.7.position }}" src="{{ MEDIA_URL }}{{ group.7.photo }}" alt="photo {{ group.7.position }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -270,7 +270,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img loading="lazy" class="w-100 h-100 img-centered photo_{{ group.8.position }}" src="{{ MEDIA_URL }}{{ group.8.photo }}" alt="photo {{ group.8.position }}">
+                                                    <img loading="lazy" class="albumPhotoModal w-100 h-100 img-centered photo_{{ group.8.position }}" src="{{ MEDIA_URL }}{{ group.8.photo }}" alt="photo {{ group.8.position }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -293,7 +293,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img loading="lazy" class="w-100 h-100 img-centered photo_{{ group.9.position }}" src="{{ MEDIA_URL }}{{ group.9.photo }}" alt="photo {{ group.9.position }}">
+                                                    <img loading="lazy" class="albumPhotoModal w-100 h-100 img-centered photo_{{ group.9.position }}" src="{{ MEDIA_URL }}{{ group.9.photo }}" alt="photo {{ group.9.position }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -310,29 +310,10 @@
         {% endfor %}
 
         {% if photos_gr.has_next %}
-            <a class="infinite-more-link" href="{% url 'album' album.id %}?page={{ photos_gr.next_page_number }}" aria-label="infinite loading">More</a>
+            <a class="infinite-more-link d-none" href="{% url 'album' album.id %}?page={{ photos_gr.next_page_number }}" aria-label="infinite loading">More</a>
         {% endif %}
 
     </section>
-
-    <!-- Photo Grid -->
-    <!-- <div class="row no-gutters">
-        {% for album in album.lineitems.all %}
-            {% if forloop.counter|divisibleby:2 %}
-                <div class="col-6">
-                    <img src="{{ MEDIA_URL }}{{ album.photos }}" style="width:50%">
-                </div>
-            {% elif forloop.counter|divisibleby:3 %}
-                <div class="col-3">
-                    <img src="{{ MEDIA_URL }}{{ album.photos }}" style="width:50%">
-                </div>
-            {% else %}
-                <div class="col-3">
-                    <img src="{{ MEDIA_URL }}{{ album.photos }}" style="width:25%">
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div> -->
 {% endblock %}
 
 {% block postloadjs %}

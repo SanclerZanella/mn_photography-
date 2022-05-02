@@ -24,7 +24,7 @@ class Home_page_content(models.Model):
                                           upload_to='home/carousell/')
     carousell_photo_3 = models.ImageField(null=True, blank=True,
                                           upload_to='home/carousell/')
-    middle_text = models.CharField(null=True, max_length=1000)
+    middle_text = models.TextField(null=True, max_length=1000)
     middle_picture = models.ImageField(null=True, blank=True,
                                        upload_to='home/middle_picture/')
     prew_picture = models.ImageField(null=True, blank=True,

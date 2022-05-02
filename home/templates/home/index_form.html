@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Custom css -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/index_form.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="row no-gutters pageTitle text-center">
+            <div class="col-12">
+                <h2>Edição da página principal</h2>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-6 mx-auto">
+                <form class="my-5" action="{% url 'edit_index' content_id %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <fieldset>
+                        <label for="id_carousell_photo_1">Primeira foto do slide</label>
+                        {{ form.carousell_photo_1 | as_crispy_field }}
+
+                        <label for="id_carousell_photo_2">Segunda foto do slide</label>
+                        {{ form.carousell_photo_2 | as_crispy_field }}
+
+                        <label for="id_carousell_photo_3">Terceira foto do slide</label>
+                        {{ form.carousell_photo_3 | as_crispy_field }}
+
+                        {{ form.middle_text | as_crispy_field }}
+
+                        <label for="id_middle_picture">Foto do fotógrafo</label>
+                        {{ form.middle_picture | as_crispy_field }}
+
+                        <label for="id_prew_picture">Foto para o link da coleção de pre-weddings</label>
+                        {{ form.prew_picture | as_crispy_field }}
+
+                        <label for="id_w_picture">Foto para o link da coleção de casamentos</label>
+                        {{ form.w_picture | as_crispy_field }}
+
+                        <label for="id_fam_picture">Foto para o link da coleção de fotos de família</label>
+                        {{ form.fam_picture | as_crispy_field }}
+
+                        <label for="id_first_testimonial_pic">Foto do primeiro testemunho</label>
+                        {{ form.first_testimonial_pic | as_crispy_field }}
+                        {{ form.first_testimonial_text | as_crispy_field }}
+                        {{ form.first_testimonial_partner1 | as_crispy_field }}
+                        {{ form.first_testimonial_partner2 | as_crispy_field }}
+
+                        <label for="id_second_testimonial_pic">Foto do segundo testemunho</label>
+                        {{ form.second_testimonial_pic | as_crispy_field }}
+                        {{ form.second_testimonial_text | as_crispy_field }}
+                        {{ form.second_testimonial_partner1 | as_crispy_field }}
+                        {{ form.second_testimonial_partner2 | as_crispy_field }}
+
+                        <label for="id_third_testimonial_pic">Foto do terceiro testemunho</label>
+                        {{ form.third_testimonial_pic | as_crispy_field }}
+                        {{ form.third_testimonial_text | as_crispy_field }}
+                        {{ form.third_testimonial_partner1 | as_crispy_field }}
+                        {{ form.third_testimonial_partner2 | as_crispy_field }}
+                    </fieldset>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'home/js/home.js' %}"></script>
+{% endblock %}

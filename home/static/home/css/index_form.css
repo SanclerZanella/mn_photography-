@@ -6,3 +6,36 @@ label {
 .pageTitle {
     margin-top: 8rem;
 }
+
+.form_img {
+    height: 50vh;
+}
+
+.fields_container {
+    background-color: #ff5b00;
+    border-radius: 3%;
+}
+
+.field_wrapper {
+    background-color: #ff7a33;
+    border-radius: 3%;
+}
+
+#loading-overlay {
+	display: none;
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 122, 51, 1);
+    z-index: 9999;
+}
+
+.loading-spinner {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+}

@@ -1,7 +1,7 @@
 ''''''
 import os
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Home_page_content, Instagram_mosaic
 from .forms import IndexForm
 from instagrapi import Client
@@ -141,11 +141,14 @@ def edit_index(request, db_id):
         query = dict(request.POST)
         print(request.POST['third_testimonial_partner1'])
 
+        return redirect('home')
+
     form = IndexForm(current_form_data)
     template = 'home/index_form.html'
     context = {
         'form': form,
         'content_id': db_id,
+        'current_content': current_page_content,
     }
 
     return render(request, template, context)

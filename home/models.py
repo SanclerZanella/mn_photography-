@@ -1,6 +1,5 @@
 from msilib.schema import Class
 from django.db import models
-import jsonfield
 
 
 class Home_page_content(models.Model):
@@ -18,8 +17,7 @@ class Home_page_content(models.Model):
         *get_friendly_name: Display the object's friendly name.
     """
 
-    carousell_photo_1 = models.ImageField(null=True, blank=True,
-                                          upload_to='home/carousell/')
+    carousell_photo_1 = models.ImageField(null=True, blank=True, upload_to='home/carousell/')
     carousell_photo_2 = models.ImageField(null=True, blank=True,
                                           upload_to='home/carousell/')
     carousell_photo_3 = models.ImageField(null=True, blank=True,
@@ -33,15 +31,21 @@ class Home_page_content(models.Model):
                                   upload_to='home/portfolio/')
     fam_picture = models.ImageField(null=True, blank=True,
                                     upload_to='home/portfolio/')
-    first_testimonial = jsonfield.JSONField(null=True)
+    first_testimonial_text = models.TextField(null=True, max_length=1000)
+    first_testimonial_partner_1 = models.TextField(null=True, max_length=1000)
+    first_testimonial_partner_2 = models.TextField(null=True, max_length=1000)
     first_testimonial_pic = models.ImageField(null=True,
                                               blank=True,
                                               upload_to='home/testimonials/')
-    second_testimonial = jsonfield.JSONField(null=True)
+    second_testimonial_text = models.TextField(null=True, max_length=1000)
+    second_testimonial_partner_1 = models.TextField(null=True, max_length=1000)
+    second_testimonial_partner_2 = models.TextField(null=True, max_length=1000)
     second_testimonial_pic = models.ImageField(null=True,
                                                blank=True,
                                                upload_to='home/testimonials/')
-    third_testimonial = jsonfield.JSONField(null=True)
+    third_testimonial_text = models.TextField(null=True, max_length=1000)
+    third_testimonial_partner_1 = models.TextField(null=True, max_length=1000)
+    third_testimonial_partner_2 = models.TextField(null=True, max_length=1000)
     third_testimonial_pic = models.ImageField(null=True,
                                               blank=True,
                                               upload_to='home/testimonials/')

@@ -12,6 +12,18 @@ class HomeAdmin(admin.ModelAdmin):
                     'middle_text',
                     'middle_picture',)
 
+    def save_model(self, request, obj, form, change):
+        '''
+        Get changed rows in database
+        '''
+        updated_fields = []
+        for key, value in form.cleaned_data.items():
+            # True if something changed in model
+            if value != form.initial[key]:
+                updated_fields.append(key)
+
+        obj.save(update_fields=updated_fields)
+
 class InstAdmin(admin.ModelAdmin):
     """
     Sort and Displays product table in Admin interface.

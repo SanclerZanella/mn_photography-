@@ -32,20 +32,20 @@ class Home_page_content(models.Model):
     fam_picture = models.ImageField(null=True, blank=True,
                                     upload_to='home/portfolio/')
     first_testimonial_text = models.TextField(null=True, max_length=1000)
-    first_testimonial_partner_1 = models.TextField(null=True, max_length=1000)
-    first_testimonial_partner_2 = models.TextField(null=True, max_length=1000)
+    first_testimonial_partner_1 = models.CharField(null=True, max_length=1000)
+    first_testimonial_partner_2 = models.CharField(null=True, max_length=1000)
     first_testimonial_pic = models.ImageField(null=True,
                                               blank=True,
                                               upload_to='home/testimonials/')
     second_testimonial_text = models.TextField(null=True, max_length=1000)
-    second_testimonial_partner_1 = models.TextField(null=True, max_length=1000)
-    second_testimonial_partner_2 = models.TextField(null=True, max_length=1000)
+    second_testimonial_partner_1 = models.CharField(null=True, max_length=1000)
+    second_testimonial_partner_2 = models.CharField(null=True, max_length=1000)
     second_testimonial_pic = models.ImageField(null=True,
                                                blank=True,
                                                upload_to='home/testimonials/')
     third_testimonial_text = models.TextField(null=True, max_length=1000)
-    third_testimonial_partner_1 = models.TextField(null=True, max_length=1000)
-    third_testimonial_partner_2 = models.TextField(null=True, max_length=1000)
+    third_testimonial_partner_1 = models.CharField(null=True, max_length=1000)
+    third_testimonial_partner_2 = models.CharField(null=True, max_length=1000)
     third_testimonial_pic = models.ImageField(null=True,
                                               blank=True,
                                               upload_to='home/testimonials/')

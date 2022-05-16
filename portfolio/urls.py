@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
     path('', views.portfolio, name='portfolio'),
     path('album/<int:album_id>', views.album, name='album'),
+    path('create_album', views.create_album, name='create_album'),
 ]

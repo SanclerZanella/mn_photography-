@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Custom css -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/collections.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <section class="form" aria-labelledby="weddings-portfolio-heading">
+        <div class="row">
+            <div class="col-6">
+                <form action="{% url 'portfolio' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+
+                    <button>SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'portfolio/js/collections.js' %}"></script>
+{% endblock %}

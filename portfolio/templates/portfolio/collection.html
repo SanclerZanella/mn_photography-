@@ -56,18 +56,9 @@
         {% if albums.has_next %}
             <a class="infinite-more-link" href="{% url 'portfolio' %}?page={{ albums.next_page_number }}" aria-label="infinite loading">More</a>
         {% endif %}
-    </section>
 
-    <section class="form" aria-labelledby="weddings-portfolio-heading">
-        <div class="row">
-            <div class="col-6">
-                <form action="{% url 'portfolio' %}" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-
-                    <button>SUBMIT</button>
-                </form>
-            </div>
+        <div class="col-6">
+            <a href="{% url 'create_album' %}">Criar novo album</a>
         </div>
     </section>
 {% endblock %}

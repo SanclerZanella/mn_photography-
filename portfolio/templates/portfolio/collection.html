@@ -23,6 +23,11 @@
     </section>
 
     <section aria-labelledby="portfolio">
+
+        <div class="col-6">
+            <a href="{% url 'create_album' %}">Criar novo album</a>
+        </div>
+        
         <h2 id="portfolio" class="sr-only">Albums</h2>
         <figure>
             <div class="row no-gutters portfolio-albums infinite-container">
@@ -56,10 +61,7 @@
         {% if albums.has_next %}
             <a class="infinite-more-link" href="{% url 'portfolio' %}?page={{ albums.next_page_number }}" aria-label="infinite loading">More</a>
         {% endif %}
-
-        <div class="col-6">
-            <a href="{% url 'create_album' %}">Criar novo album</a>
-        </div>
+        
     </section>
 {% endblock %}
 

@@ -1,7 +1,3 @@
-.form {
-    margin-top: 10rem;
-}
-
 #collection-album .row {
     display: flex;
     justify-content: center;
@@ -32,8 +28,8 @@ font-size: 50px;
 /* Hover effect source taken from mike tricking */
 
 .hovereffect {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 40vh;
     float: left;
     overflow: hidden;
     position: relative;
@@ -70,8 +66,8 @@ transform: scale(1);
 }
 
 .hovereffect img {
-width: 90%;
-height: auto;
+width: 100%;
+height: 100%;
 margin: 20px auto;
 display: block;
 position: relative;

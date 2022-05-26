@@ -3,7 +3,7 @@
 
 <!-- Custom css -->
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/create_album.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/edit_album.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -12,7 +12,7 @@
 
         <div class="row no-gutters pageTitle text-center">
             <div class="col-12">
-                <h2>Criar Novo Álbum</h2>
+                <h2>Editar Álbum</h2>
             </div>
         </div>
 
@@ -30,15 +30,23 @@
                                 {{ form.date | as_crispy_field }}
                                 {{ form.place | as_crispy_field }}
 
-                                <div class="row no-gutters previewCoverImage">
-                                    <div id="newAlbumCoverPrev" class="col-12">
+                                <div class="row no-gutters">
+                                    <label for="current_cover">Foto de Capa Atual</label>
+                                    <div  id="current_cover" class="col-12 previewImages mx-auto">
+                                        <img class="form_img" src="{{ MEDIA_URL }}{{ current_cover }}" >
                                     </div>
                                 </div>
                                 {{ form.cover | as_crispy_field }}
                                 {{ form.description | as_crispy_field }}
 
-                                <div class="row no-gutters previewImages">
-                                    <div id="newAlbumPhotosPrev" class="col-12">
+                                <div class="row no-gutters">
+                                    <label for="current_photos">Fotos Atuais</label>
+                                    <div  id="current_photos" class="col-12 previewImages mx-auto">
+                                        {% for photo in current_photos %}
+                                            <a href="#">
+                                                <img class="form_photos" src="{{ MEDIA_URL }}{{ photo.photos }}" >
+                                            </a>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 {{ form.photos | as_crispy_field }}

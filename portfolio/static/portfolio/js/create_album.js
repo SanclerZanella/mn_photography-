@@ -26,3 +26,12 @@ $('#id_cover').change(() => {
 $('#id_photos').change(() => {
     previewPictures('#id_photos', '.previewImages', '#newAlbumPhotosPrev', 'previewPictureAlbum')
 });
+
+// Show loading animation on form submition
+const form = $('#create-album-form'); 
+
+form.submit((e) => {
+    $('.btn-mn').attr('disabled', true);
+    $('#create-album-form').fadeToggle(100);
+    $('#loading-overlay').fadeToggle(100);
+});

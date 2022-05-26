@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import user_passes_test
 from .models import Album, AlbumPhoto, Category
 from .forms import AlbumForm
 
@@ -75,6 +77,7 @@ def album(request, album_id):
     return render(request, template, context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def create_album(request):
     """
     A view to render the portfolio page
@@ -84,6 +87,7 @@ def create_album(request):
 
         album_form = AlbumForm(request.POST, request.FILES)
         if album_form.is_valid():
+
             album_form.save()
 
             album = Album.objects.get(title=request.POST['title'])
@@ -102,9 +106,81 @@ def create_album(request):
                                        )
                 AlbumPhoto_line_item.save()
 
+            return redirect(f'/portfolio/?category={album.category}')
+
     template = 'portfolio/create_album.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def delete_product(request, album_pk):
+    """ Delete an album """
+
+    # Restric functionality to superuser
+    if not request.user.is_superuser:
+        # messages.error(request, 'Sorry, only site staff can do that.')
+        return HttpResponseRedirect(request.path_info)
+
+    # Delete chosen product from db
+    album = get_object_or_404(Album, pk=album_pk)
+    category = album.category
+    album.delete()
+    # messages.success(request, 'Product deleted!')
+
+    return redirect(f'/portfolio/?category={category}')
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def edit_album(request, album_pk):
+    """
+    A view to render the edit album form
+    """
+    current_album = Album.objects.get(pk=album_pk)
+    current_photos = list(AlbumPhoto.objects.filter(album=current_album))
+    album_data = {
+        'category': current_album.category,
+        'title': current_album.title,
+        'pre_desc': current_album.pre_desc,
+        'date': current_album.date,
+        'place': current_album.place,
+        'cover': current_album.cover,
+        'description': current_album.description,
+    }
+    form = AlbumForm(album_data)
+    if request.method == 'POST':
+
+        album_form = AlbumForm(request.POST, request.FILES)
+        if album_form.is_valid():
+
+            album_form.save()
+
+            album = Album.objects.get(title=request.POST['title'])
+
+            photos = request.FILES.getlist('photos')
+
+            photo_position = 0
+            for photo in photos:
+
+                photo_position += 1
+
+                AlbumPhoto_line_item = AlbumPhoto(
+                                        album=album,
+                                        photos=photo,
+                                        position=photo_position
+                                       )
+                AlbumPhoto_line_item.save()
+
+            return redirect(f'/portfolio/?category={album.category}')
+
+    template = 'portfolio/edit_album.html'
+    context = {
+        'form': form,
+        'current_cover': current_album.cover,
+        'current_photos': current_photos,
     }
 
     return render(request, template, context)

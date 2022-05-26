@@ -1,9 +1,8 @@
 ''''''
 import os
-from traceback import print_tb
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import user_passes_test
 from .models import Home_page_content, Instagram_mosaic
 from .forms import IndexForm
 from instagrapi import Client
@@ -102,7 +101,7 @@ def index(request):
 
     return render(request, template, context)
 
-@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_index(request, db_id):
     """
     A view to render the index page edit form

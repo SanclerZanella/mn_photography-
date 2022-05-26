@@ -24,36 +24,90 @@
 
     <section aria-labelledby="portfolio">
 
-        <div class="col-6">
-            <a href="{% url 'create_album' %}">Criar novo album</a>
-        </div>
+        {% if user.is_superuser %}
+            <div class="col-6">
+                <a href="{% url 'create_album' %}">Criar novo álbum <i class="fas fa-plus-square"></i></a>
+            </div>
+        {% endif %}
         
         <h2 id="portfolio" class="sr-only">Albums</h2>
         <figure>
             <div class="row no-gutters portfolio-albums infinite-container">
                 {% for album in albums %}
                     <div class="col-md-5 col-lg-4 infinite-item">
-                        <div class="hovereffect">
-                            <a href="{% url 'album' album.id %}"
-                                aria-label="Go to {{ album.title }} album">
-                                <img loading="lazy" src="{{ MEDIA_URL }}{{ album.cover }}"
-                                    alt="{{ album.title }} album">
-                                <div class="overlay" aria-labelledby="{{ album.title }}_photos">
-                                    <h2 id="{{ album.title }}_photos">{{ album.title }}</h2>
-                                    <p>
-                                        {{ album.pre_desc }}
-                                    </p>
-                                    {% if catg.name == 'wedding' %}
-                                        <p>
-                                            {{ album.date|date:"d / m / Y" }}
-                                        </p>
-                                    {% endif %}
-                                    <p>
-                                        <span><i class="fas fa-map-marker-alt"></i></span> {{ album.place }}
-                                    </p>
+
+                        <div class="row no-gutters">
+                            <div class="col-12">
+
+                                <div class="hovereffect">
+                                    <a href="{% url 'album' album.id %}"
+                                        aria-label="Go to {{ album.title }} album">
+                                        <img loading="lazy" src="{{ MEDIA_URL }}{{ album.cover }}"
+                                            alt="{{ album.title }} album">
+                                        <div class="overlay" aria-labelledby="{{ album.title }}_photos">
+                                            <h2 id="{{ album.title }}_photos">{{ album.title }}</h2>
+                                            <p>
+                                                {{ album.pre_desc }}
+                                            </p>
+                                            {% if catg.name == 'wedding' %}
+                                                <p>
+                                                    {{ album.date|date:"d / m / Y" }}
+                                                </p>
+                                            {% endif %}
+                                            <p>
+                                                <span><i class="fas fa-map-marker-alt"></i></span> {{ album.place }}
+                                            </p>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
+                                
+                            </div>
+
+                            {% if user.is_superuser %}
+
+                                <div class="col-5 text-center mt-1">
+
+                                    <a href="{% url 'edit_album' album.pk %}">
+                                        Editar <i class="fas fa-edit"></i>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-5 text-center mt-1">
+
+                                    <a href="#" data-toggle="modal" data-target="#removeAlbumModal_{{ album.pk }}">
+                                        Excluir <i class="fas fa-trash-alt"></i>
+                                    </a>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="removeAlbumModal_{{ album.pk }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Atenção <i class="fas fa-exclamation-triangle"></i></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Você realmente deseja excluir o álbum <strong>{{ album.title }}</strong>?
+                                            </div>
+                                            <div class="modal-footer">
+                                            <a href="#" class="text-danger font-weight-bold" data-dismiss="modal">Fechar</button>
+                                            <a class="btn btn-shadow btn-mn" href="{% url 'delete_album' album.pk %}" >
+                                                Excluir
+                                            </a>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            {% endif %}
+
                         </div>
+
                     </div>
                 {% endfor %}
         </figure>

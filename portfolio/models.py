@@ -60,7 +60,6 @@ class AlbumPhoto(models.Model):
 
     album = models.ForeignKey(Album, default=None, on_delete=models.CASCADE, related_name='lineitems')
     photos = models.ImageField(upload_to="portfolio/albums/")
-    position = models.IntegerField(null=True)
 
     def save(self, *args, **kwargs):
         """

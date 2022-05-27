@@ -18,7 +18,7 @@
 
         <div class="row no-gutters mt-3">
             <div class="col-8 mx-auto">
-                <form id="create-album-form" action="{% url 'create_album' %}" method="POST" enctype="multipart/form-data">
+                <form id="create-album-form" action="{% url 'edit_album' current_album.pk %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <fieldset>
                         <div class="fields_container p-3 mb-3">
@@ -33,7 +33,7 @@
                                 <div class="row no-gutters">
                                     <label for="current_cover">Foto de Capa Atual</label>
                                     <div  id="current_cover" class="col-12 previewImages mx-auto">
-                                        <img class="form_img" src="{{ MEDIA_URL }}{{ current_cover }}" >
+                                        <img class="form_img" src="{{ MEDIA_URL }}{{ current_album.cover }}" >
                                     </div>
                                 </div>
                                 {{ form.cover | as_crispy_field }}
@@ -41,7 +41,7 @@
 
                                 <div class="row no-gutters">
                                     <label for="current_photos">Fotos Atuais</label>
-                                    <div  id="current_photos" class="col-12 previewImages mx-auto">
+                                    <div  id="current_photos" class="col-12 previewImages mx-auto text-center">
                                         {% for photo in current_photos %}
                                             <a href="#">
                                                 <img class="form_photos" src="{{ MEDIA_URL }}{{ photo.photos }}" >

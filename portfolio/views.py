@@ -50,7 +50,7 @@ def album(request, album_id):
     for ab in AlbumPhoto.objects.filter(album=album):
         photo_dict = {
             'photo': ab.photos,
-            'position': ab.position
+            'position': ab.pk
         }
         all_photos.append(photo_dict)
 
@@ -94,15 +94,11 @@ def create_album(request):
 
             photos = request.FILES.getlist('photos')
 
-            photo_position = 0
             for photo in photos:
-
-                photo_position += 1
 
                 AlbumPhoto_line_item = AlbumPhoto(
                                         album=album,
-                                        photos=photo,
-                                        position=photo_position
+                                        photos=photo
                                        )
                 AlbumPhoto_line_item.save()
 
@@ -139,7 +135,7 @@ def edit_album(request, album_pk):
     """
     A view to render the edit album form
     """
-    current_album = Album.objects.get(pk=album_pk)
+    current_album = get_object_or_404(Album, pk=album_pk)
     current_photos = list(AlbumPhoto.objects.filter(album=current_album))
     album_data = {
         'category': current_album.category,
@@ -151,9 +147,10 @@ def edit_album(request, album_pk):
         'description': current_album.description,
     }
     form = AlbumForm(album_data)
+
     if request.method == 'POST':
 
-        album_form = AlbumForm(request.POST, request.FILES)
+        album_form = AlbumForm(request.POST, request.FILES, instance=current_album)
         if album_form.is_valid():
 
             album_form.save()
@@ -162,15 +159,11 @@ def edit_album(request, album_pk):
 
             photos = request.FILES.getlist('photos')
 
-            photo_position = 0
             for photo in photos:
-
-                photo_position += 1
 
                 AlbumPhoto_line_item = AlbumPhoto(
                                         album=album,
-                                        photos=photo,
-                                        position=photo_position
+                                        photos=photo
                                        )
                 AlbumPhoto_line_item.save()
 
@@ -179,7 +172,7 @@ def edit_album(request, album_pk):
     template = 'portfolio/edit_album.html'
     context = {
         'form': form,
-        'current_cover': current_album.cover,
+        'current_album': current_album,
         'current_photos': current_photos,
     }
 

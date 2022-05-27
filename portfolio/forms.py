@@ -41,7 +41,7 @@ class AlbumForm(forms.ModelForm):
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['required'] = 'required'
+            # self.fields[field].widget.attrs['required'] = 'required'
 
             if field in label_fields:
                 self.fields[field].label = placeholder

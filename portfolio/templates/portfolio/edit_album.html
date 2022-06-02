@@ -41,13 +41,26 @@
 
                                 <div class="row no-gutters">
                                     <label for="current_photos">Fotos Atuais</label>
+
                                     <div  id="current_photos" class="col-12 previewImages mx-auto text-center">
-                                        {% for photo in current_photos %}
-                                            <a href="#">
-                                                <img class="form_photos" src="{{ MEDIA_URL }}{{ photo.photos }}" >
-                                            </a>
-                                        {% endfor %}
+                                        <div class="row no-gutters">
+                                            {% for photo in current_photos %}
+                                                <div class="col-3">
+                                                    <img class="form_photos photoCollapsible editFormPhoto test_{{ photo.pk }}" src="{{ MEDIA_URL }}{{ photo.photos }}">
+                                                    <div class="content">
+                                                        <div>
+                                                            <a href="">Mudar Foto <i class="fas fa-exchange-alt"></i></a>
+                                                        </div>
+                                                        <div>
+                                                            <a href="">Deletar Foto <i class="fas fa-trash-alt"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            {% endfor %}
+                                        </div>
                                     </div>
+
                                 </div>
                                 {{ form.photos | as_crispy_field }}
                             </div>
@@ -61,6 +74,7 @@
                     </fieldset>
 
                 </form>
+
             </div>
         </div>
     </section>
@@ -80,5 +94,5 @@
 {% endblock %}
 
 {% block postloadjs %}
-    <script src="{% static 'portfolio/js/create_album.js' %}"></script>
+    <script src="{% static 'portfolio/js/edit_album.js' %}"></script>
 {% endblock %}

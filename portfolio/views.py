@@ -113,7 +113,7 @@ def create_album(request):
 
 
 @user_passes_test(lambda u: u.is_superuser)
-def delete_product(request, album_pk):
+def delete_album(request, album_pk):
     """ Delete an album """
 
     # Restric functionality to superuser
@@ -177,3 +177,12 @@ def edit_album(request, album_pk):
     }
 
     return render(request, template, context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def change_photo(request, photo_pk, photo_album):
+    """
+    A view to render the edit album form
+    """
+
+    return HttpResponseRedirect(request.path_info)

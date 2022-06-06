@@ -9,4 +9,5 @@ urlpatterns = [
     path('create_album', views.create_album, name='create_album'),
     path('delete_album/<int:album_pk>', views.delete_album, name='delete_album'),
     path('edit_album/<int:album_pk>', views.edit_album, name='edit_album'),
+    path('change_photo/<int:photo_pk>/<photo_album>', views.change_photo, name='change_photo'),
 ]

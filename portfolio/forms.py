@@ -1,5 +1,5 @@
 from django import forms
-from .models import Album, Category
+from .models import Album, Category, AlbumPhoto
 
 
 class AlbumForm(forms.ModelForm):
@@ -41,9 +41,27 @@ class AlbumForm(forms.ModelForm):
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            # self.fields[field].widget.attrs['required'] = 'required'
 
             if field in label_fields:
                 self.fields[field].label = placeholder
             else:
                 self.fields[field].label = False
+
+
+class ChangePhoto(forms.ModelForm):
+    '''
+    New album form
+    '''
+
+    class Meta:
+        '''
+        Change date format
+        '''
+        model = AlbumPhoto
+        fields = ['photos']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['photos'].label = 'Nova Foto'
+        self.fields['photos'].required = False

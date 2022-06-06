@@ -1,9 +1,14 @@
+import os
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import user_passes_test
 from .models import Album, AlbumPhoto, Category
-from .forms import AlbumForm
+from .forms import AlbumForm, ChangePhoto
+if os.path.exists('env.py'):
+    import env
 
 
 def portfolio(request):
@@ -169,9 +174,11 @@ def edit_album(request, album_pk):
 
             return redirect(f'/portfolio/?category={album.category}')
 
+    changePhotoForm = ChangePhoto()
     template = 'portfolio/edit_album.html'
     context = {
         'form': form,
+        'changePhotoForm': changePhotoForm,
         'current_album': current_album,
         'current_photos': current_photos,
     }
@@ -184,5 +191,34 @@ def change_photo(request, photo_pk, photo_album):
     """
     A view to render the edit album form
     """
+    photoAlbum = get_object_or_404(Album, id=photo_album)
+    current_photo = get_object_or_404(AlbumPhoto, pk=photo_pk, album=photoAlbum)
+    folder_type = photoAlbum.category
+    folder_name = photoAlbum.title
+    albumPk = photoAlbum.pk
 
-    return HttpResponseRedirect(request.path_info)
+    if request.method == 'POST':
+        try:
+            new_file = request.FILES["photos"]
+        except Exception:
+            return redirect(f'/portfolio/edit_album/{albumPk}')
+
+        old_file = current_photo.photos
+
+        if not old_file == new_file:
+            if old_file:
+                if "DEVELOPMENT" in os.environ:
+                    if os.path.isfile(old_file.path):
+                        os.remove(old_file.path)
+                else:
+                    old_file.delete(save=False)
+            else:
+                return redirect(f'/portfolio/edit_album/{albumPk}')
+        else:
+            return redirect(f'/portfolio/edit_album/{albumPk}')
+        
+        AlbumPhoto.objects.filter(pk=photo_pk).update(photos=f'portfolio/albums/{folder_type}/{folder_name}/{new_file}')
+        fs = FileSystemStorage(location=f'{settings.MEDIA_ROOT}/portfolio/albums/{folder_type}/{folder_name}')
+        fs.save(new_file.name, new_file)
+
+    return redirect(f'/portfolio/edit_album/{albumPk}')

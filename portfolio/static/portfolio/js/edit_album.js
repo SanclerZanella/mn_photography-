@@ -14,7 +14,8 @@ $(document).on('click', '.photoCollapsible', (e) => {
         $(e.target).css({
             "border": "0",
         });
-        $(content).hide("slow")
+        $(content).hide("slow");
+
     } else {
         $(e.target).addClass("active");
         $(".photoCollapsible").css({
@@ -47,3 +48,30 @@ $(document).on('click', '.photoCollapsible', (e) => {
 });
 
 
+function openChangeModal(button, modal) {
+    const changeModal = $(modal);
+    const changeModalPreview = $('#changePhotoPrev');
+
+    $(document).on('click', button, (e) => {
+        changeModal.show(500);
+        photo_src = $(e.target).data('photo');
+        photo_url = $(e.target).data('url');
+        changeModalPreview.html(
+            `<img src="${photo_src}" alt="">`
+        );
+        $('#changePhoto_form').attr('action', `${photo_url}`);
+    });
+
+    const span = $('.close');
+    span.click(() => {
+        changeModal.hide(500);
+    });
+
+    $(window).click((e) => {
+        if (e.target.id == changeModal.attr('id')) {
+            changeModal.hide(500);
+        };
+    });
+};
+
+openChangeModal('.changeBtn', '#changePhotoModal');

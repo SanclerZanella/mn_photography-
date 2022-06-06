@@ -1,0 +1,7 @@
+<form id="changePhoto_form" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ changePhotoForm|crispy }}
+    <div class="text-center">
+        <button class="btn btn-shadow btn-mn">Substituir Foto</button>
+    </div>
+</form>

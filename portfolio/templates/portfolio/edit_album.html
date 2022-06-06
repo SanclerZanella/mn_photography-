@@ -49,7 +49,7 @@
                                                     <img class="form_photos photoCollapsible editFormPhoto test_{{ photo.pk }}" src="{{ MEDIA_URL }}{{ photo.photos }}">
                                                     <div class="content">
                                                         <div>
-                                                            <a href="">Mudar Foto <i class="fas fa-exchange-alt"></i></a>
+                                                            <a id="changeBtn_{{ photo.pk }}" class="changeBtn" data-photo="{{ MEDIA_URL }}{{ photo.photos }}" data-url="{% url 'change_photo' photo.pk photo.album.id %}">Mudar Foto <i class="fas fa-exchange-alt"></i></a>
                                                         </div>
                                                         <div>
                                                             <a href="">Deletar Foto <i class="fas fa-trash-alt"></i></a>
@@ -74,6 +74,19 @@
                     </fieldset>
 
                 </form>
+
+                <!-- The Modal -->
+                <div id="changePhotoModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Você gostaria de substitutir essa foto?</p>
+                    <div id="changePhotoPrev"></div>
+                    {% include 'portfolio/includes/change_photo_form.html' %}
+                    </div>
+                
+                </div>
 
             </div>
         </div>

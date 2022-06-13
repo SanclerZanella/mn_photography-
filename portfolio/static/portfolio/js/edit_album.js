@@ -75,3 +75,26 @@ function openChangeModal(button, modal) {
 };
 
 openChangeModal('.changeBtn', '#changePhotoModal');
+
+function openDeleteModal(button, modal) {
+    const deleteModal = $(modal);
+
+    $(document).on('click', button, (e) => {
+        url = $(e.target).data('url');
+        $('#deleteModalBtn').attr('href', url);
+        deleteModal.show(500);
+    });
+
+    const span = $('.close');
+    span.click(() => {
+        deleteModal.hide(500);
+    });
+
+    $(window).click((e) => {
+        if (e.target.id == deleteModal.attr('id')) {
+            deleteModal.hide(500);
+        };
+    });
+};
+
+openDeleteModal('.deleteBtn', '#deletePhotoModal');

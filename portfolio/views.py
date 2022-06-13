@@ -222,3 +222,21 @@ def change_photo(request, photo_pk, photo_album):
         fs.save(new_file.name, new_file)
 
     return redirect(f'/portfolio/edit_album/{albumPk}')
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def delete_photo(request, photo_pk):
+    """ Delete a single photo """
+
+    # Restric functionality to superuser
+    if not request.user.is_superuser:
+        # messages.error(request, 'Sorry, only site staff can do that.')
+        return HttpResponseRedirect(request.path_info)
+
+    # Delete chosen product from db
+    photo = get_object_or_404(AlbumPhoto, pk=photo_pk)
+    album = photo.album
+    photo.delete()
+    # messages.success(request, 'Product deleted!')
+
+    return redirect(f'/portfolio/edit_album/{album.pk}')

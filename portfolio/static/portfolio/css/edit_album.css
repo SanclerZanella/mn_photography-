@@ -106,7 +106,7 @@ textarea {
 }
 
 /* The Modal (background) */
-.modal {
+.changeModal, .deleteModal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -121,11 +121,18 @@ textarea {
 }
 
 /* Modal Content */
-.modal-content {
+.changeModal-content, .deleteModal-content,
+.modalBody, .modalFooter {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    width: 80%;
+}
+
+.modalBody, .modalFooter {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
     width: 80%;
 }
 

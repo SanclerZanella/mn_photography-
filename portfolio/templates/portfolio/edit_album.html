@@ -52,7 +52,7 @@
                                                             <a id="changeBtn_{{ photo.pk }}" class="changeBtn" data-photo="{{ MEDIA_URL }}{{ photo.photos }}" data-url="{% url 'change_photo' photo.pk photo.album.id %}">Mudar Foto <i class="fas fa-exchange-alt"></i></a>
                                                         </div>
                                                         <div>
-                                                            <a href="">Deletar Foto <i class="fas fa-trash-alt"></i></a>
+                                                            <a id="deleteBtn_{{ photo.pk }}" class="deleteBtn" data-url="{% url 'delete_photo' photo.pk %}">Deletar Foto <i class="fas fa-trash-alt"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -75,15 +75,32 @@
 
                 </form>
 
-                <!-- The Modal -->
-                <div id="changePhotoModal" class="modal">
+                <!-- The Change photo modal -->
+                <div id="changePhotoModal" class="changeModal">
 
                     <!-- Modal content -->
-                    <div class="modal-content">
+                    <div class="changeModal-content">
                     <span class="close">&times;</span>
                     <p>Você gostaria de substitutir essa foto?</p>
                     <div id="changePhotoPrev"></div>
                     {% include 'portfolio/includes/change_photo_form.html' %}
+                    </div>
+                
+                </div>
+
+                <!-- The Delete photo modal -->
+                <div id="deletePhotoModal" class="deleteModal">
+
+                    <!-- Modal content -->
+                    <div class="deleteModal-content">
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="modalBody">
+                        <p>Você gostaria de deletar essa foto?</p>
+                    </div>
+                    <div class="modalFooter">
+                        <a>Fechar</a>
+                        <a id="deleteModalBtn" class="btn btn-shadow btn-mn">Deletar</a>
                     </div>
                 
                 </div>

@@ -36,57 +36,70 @@ def update_photos_on_delete(sender, instance, **kwargs):
             if os.path.isfile(instance.photos.path):
                 path_dirs = str(instance.photos.path).split(os.sep)
                 del path_dirs[-1]
-                shutil.rmtree("/".join(path_dirs))
+                folder = "/".join(path_dirs)
+                number_files = len(list(file for file in os.listdir(folder)))
+
+                if number_files > 1:
+                    os.remove(instance.photos.path)
+                else:
+                    shutil.rmtree(folder)
         else:
             instance.photos.delete(save=False)
 
 
-# @receiver(pre_save, sender=Album)
-# def auto_delete_file_on_change(sender, instance, **kwargs):
-#     """
-#     Deletes old file from filesystem
-#     when corresponding `Home_page_content` object is updated
-#     with new file.
-#     """
+@receiver(pre_save, sender=Album)
+def auto_delete_file_on_change_album(sender, instance, **kwargs):
+    """
+    Deletes old file from filesystem
+    when corresponding `Album` object is updated
+    with new file.
+    """
 
-#     old_files = {
-#     'carousell_photo_1': Home_page_content.objects.get(pk=instance.pk).carousell_photo_1,
-#     'carousell_photo_2':Home_page_content.objects.get(pk=instance.pk).carousell_photo_2,
-#     'carousell_photo_3':Home_page_content.objects.get(pk=instance.pk).carousell_photo_3,
-#     'middle_picture':Home_page_content.objects.get(pk=instance.pk).middle_picture,
-#     'prew_picture':Home_page_content.objects.get(pk=instance.pk).prew_picture,
-#     'w_picture':Home_page_content.objects.get(pk=instance.pk).w_picture,
-#     'fam_picture':Home_page_content.objects.get(pk=instance.pk).fam_picture,
-#     'first_testimonial_pic':Home_page_content.objects.get(pk=instance.pk).first_testimonial_pic,
-#     'second_testimonial_pic':Home_page_content.objects.get(pk=instance.pk).second_testimonial_pic,
-#     'third_testimonial_pic':Home_page_content.objects.get(pk=instance.pk).third_testimonial_pic
-#     }
+    if not instance.pk:
+        return False
 
-#     new_files = {
-#         'carousell_photo_1': instance.carousell_photo_1,
-#         'carousell_photo_2':instance.carousell_photo_2,
-#         'carousell_photo_3':instance.carousell_photo_3,
-#         'middle_picture':instance.middle_picture,
-#         'prew_picture':instance.prew_picture,
-#         'w_picture':instance.w_picture,
-#         'fam_picture':instance.fam_picture,
-#         'first_testimonial_pic':instance.first_testimonial_pic,
-#         'second_testimonial_pic':instance.second_testimonial_pic,
-#         'third_testimonial_pic':instance.third_testimonial_pic
-#     }
+    try:
+        old_file = Album.objects.get(pk=instance.pk).cover
+    except Album.DoesNotExist:
+        return False
 
-#     for key, item in old_files.items():
-#         try:
-#             item
-#         except Home_page_content.DoesNotExist:
-#             return False
+    new_file = instance.cover
 
-#         if not item == new_files[key]:
-#             if item:
-#                 if 'DEVELOPMENT' in os.environ:
-#                     if os.path.isfile(item.path):
-#                         os.remove(item.path)
-#                     else:
-#                         item.delete(save=False)
-#         else:
-#             return False
+    if not old_file == new_file:
+        if old_file:
+            if 'DEVELOPMENT' in os.environ:
+                if os.path.isfile(old_file.path):
+                    os.remove(old_file.path)
+            else:
+                old_file.delete(save=False)
+    else:
+        return False
+
+
+@receiver(pre_save, sender=AlbumPhoto)
+def auto_delete_file_on_change_photo(sender, instance, **kwargs):
+    """
+    Deletes old file from filesystem
+    when corresponding `AlbumPhoto` object is updated
+    with new file.
+    """
+
+    if not instance.pk:
+        return False
+
+    try:
+        old_file = AlbumPhoto.objects.get(pk=instance.pk).cover
+    except AlbumPhoto.DoesNotExist:
+        return False
+
+    new_file = instance.cover
+
+    if not old_file == new_file:
+        if old_file:
+            if 'DEVELOPMENT' in os.environ:
+                if os.path.isfile(old_file.path):
+                    os.remove(old_file.path)
+            else:
+                old_file.delete(save=False)
+    else:
+        return False

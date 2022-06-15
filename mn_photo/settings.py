@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'portfolio',
+    'bio',
     'crispy_forms',
     'widget_tweaks',
 

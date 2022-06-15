@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Custom css -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/collections.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>WORKING!!!</h1>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'portfolio/js/collections.js' %}"></script>
+{% endblock %}

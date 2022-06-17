@@ -3,11 +3,118 @@
 
 <!-- Custom css -->
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'portfolio/css/collections.css' %}">
+    <link rel="stylesheet" href="{% static 'bio/css/bio.css' %}">
 {% endblock %}
 
 {% block content %}
-    <h1>WORKING!!!</h1>
+<section aria-labelledby="tittleHero-bio">
+    <h2 id="tittleHero-bio" class="sr-only">tittle and Hero of bio page</h2>
+
+    <!-- 2.1.Page Title -->
+
+    <div id="bio-header">
+      <div class="row no-gutters">
+        <div class="col" aria-labelledby="title-bio">
+          <h2 id="title-bio">Família, Amor e Fotografia</h2>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- 2.2.Hero image -->
+
+      <div class="row no-gutters">
+        <div class="col hero-bio">
+          <figure>
+            <img
+              class="img-centered"
+              src="assets/images/bio-page/mn-family.jpg"
+              alt="Marco Neves family"
+            />
+          </figure>
+        </div>
+      </div>
+
+      <hr />
+    </div>
+  </section>
+
+  <!-- 3.Bio Page middle content section: Includes an article. Grid system from Bootstrap 4-->
+
+  <section>
+    <h2 class="sr-only">Middle content</h2>
+    <div id="bio-middle-content">
+      <div class="row no-gutters">
+        <div class="col">
+          <article>
+            <h2 class="sr-only">Middle content text</h2>
+            <div id="introducing">
+              <p>
+                <span class="initial-letter">É</span> um imenso prazer ter
+                você aqui. Eu sou Marco, tenho 24 anos de idade, e sou
+                apaixonado por fotos de casamento e família. Desde de o
+                primeiro contato com a fotografia, eu soube que isso era
+                exatamente o caminho que eu queria seguir. Eu tenho uma
+                enorme paixão em conhecer pessoas e histórias, eu quero que
+                a minha fotografia seja baseada nessa minha paixão de contar
+                histórias. É realmente prazeroso sentar com amigos e ver
+                fotos que relembram momentos incríveis e pessoas especiais.
+                E foi esse sentimento que me impulsionou a ser um fotógrafo
+                profissional. Podendo assim, proporcionar às pessoas que
+                amam a vida tanto quanto eu, eternizar momentos da sua
+                história.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <hr />
+    </div>
+  </section>
+
+  <!-- 4.End Page middle content section: Includes an quote and a profile photo. Grid system from Bootstrap 4-->
+
+  <section aria-labelledby="end-content">
+    <h2 id="end-content" class="sr-only">End content of bio page</h2>
+    <div id="bio-end-content">
+      <div class="row no-gutters">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <!-- 4.1.Quote -->
+
+          <article>
+            <h2 class="sr-only">Quote text</h2>
+            <div id="bio-quote">
+              <p>
+                <span class="initial-letter">A</span> fotografia é o
+                instrumento que eu uso para contar as histórias de famílias.
+                A união de um casal, a espera e chegada de um novo membro da
+                família e qualquer outro momento especial da família que
+                mereça ser registrado. Quando estou fotografando, eu tenho a
+                oportunidade de me conectar com as pessoas, com suas
+                histórias. É um momento de aproximação, mais do que ser
+                fotografado e dirigido é também ser ouvido e bem recebido.
+                Eu me importo com a história de cada um, elas são a razão do
+                meu trabalho, são o sentido do que eu faço.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- 4.2.Profile Photo -->
+
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <figure>
+            <img
+              class="img-centered"
+              id="bio-profile-photo"
+              src="assets/images/bio-page/bio-profile-photo.jpg"
+              alt="Marco Neves Profile photo"
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
 
 {% block postloadjs %}

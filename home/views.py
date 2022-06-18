@@ -106,7 +106,7 @@ def edit_index(request, db_id):
     """
     A view to render the index page edit form
     """
-    current_page_content = Home_page_content.objects.get(id=1)
+    current_page_content = Home_page_content.objects.all().first()
 
     current_form_data = {
                             'carousell_photo_1': current_page_content.carousell_photo_1,

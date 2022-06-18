@@ -852,15 +852,17 @@
                 </figure> -->
             </section>
 
-            <section>
-                <div class="row no-gutters">
-                    <div class="col-12 mb-2 text-center">
-                        <a href="{% url 'edit_index' content.0.id %}">
-                            Editar Página <i class="fas fa-edit"></i>
-                        </a>
+            {% if user.is_superuser %}
+                <section>
+                    <div class="row no-gutters">
+                        <div class="col-12 mb-2 text-center">
+                            <a href="{% url 'edit_index' content.0.id %}">
+                                Editar Página <i class="fas fa-edit"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            {% endif %}
         </main>
     {% endfor %}
 

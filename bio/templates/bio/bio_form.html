@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Custom css -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'bio/css/bio_form.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section>
+            <div class="row no-gutters pageTitle text-center">
+                <div class="col-12">
+                    <h2>Edição da página Bio</h2>
+                </div>
+            </div>
+
+            <div class="row no-gutters">
+                <div class="col-8 mx-auto">
+                    <form id="edit-bio-form" class="my-5" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <fieldset>
+
+                            <div class="fields_container p-3 mb-3">
+                                <h3 class="text-center font-weight-bold">Título e Foto de Capa</h3>
+
+                                <div class="field_wrapper p-3 mb-3">
+                                    {{ form.title | as_crispy_field }}
+                                </div>
+
+                                <div class="field_wrapper p-3 mb-3">
+                                    <label for="id_carousell_photo_2">Capa da Página Atual</label>
+                                    <div class="text-center mb-2">
+                                        <img class="form_img" src="{{ MEDIA_URL }}{{ content.cover_picture }}" alt="Cover image">
+                                    </div>
+                                    {{ form.cover_picture | as_crispy_field }}
+                                </div>
+                            </div>
+
+                            <div class="fields_container p-3 mb-3">
+                                <h3 class="text-center font-weight-bold">Conteúdo do Meio da Página</h3>
+
+                                <div class="field_wrapper p-3 mb-3">
+                                    {{ form.first_text | as_crispy_field }}
+                                </div>
+
+                                <div class="field_wrapper p-3 mb-3">
+                                    <label for="id_middle_picture">Segunda Foto Atual</label>
+                                    <div class="text-center mb-2">
+                                        <img class="form_img" src="{{ MEDIA_URL }}{{ content.second_photo }}" alt="Second image">
+                                    </div>
+                                    {{ form.second_photo | as_crispy_field }}
+                                </div>
+
+                                <div class="field_wrapper p-3 mb-3">
+                                    {{ form.second_text | as_crispy_field }}
+                                </div>
+                                
+                            </div>
+
+                            <div class="text-center">
+                                <button class="btn btn-shadow btn-mn">Atualizar Conteúdo</button>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Loading screen -->
+        <section aria-labelledby="overlay">
+            <h2 class="sr-only" id="overlay">Loading Overlay</h2>
+            <div id="loading-overlay">
+                <h1 class="text-light logo-font loading-spinner">
+                    <span class="icon">
+                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                    </span>
+                </h1>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'bio/js/bio_form.js' %}"></script>
+{% endblock %}

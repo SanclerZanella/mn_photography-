@@ -82,5 +82,3 @@ def auto_delete_file_on_change(sender, instance, **kwargs):
                         os.remove(item.path)
                     else:
                         item.delete(save=False)
-        else:
-            return False

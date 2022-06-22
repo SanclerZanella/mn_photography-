@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Custom css -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'bio/css/bio_form.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <section>
+            <div class="row no-gutters pageTitle text-center">
+                <div class="col-12">
+                    <h2>Vamos tomar um café e conversar?!</h2>
+                </div>
+            </div>
+
+            <div class="row no-gutters">
+                <div class="col-8 mx-auto">
+                    <form id="edit-bio-form" class="my-5" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <fieldset>
+
+                            <div class="text-center">
+                                <button class="btn btn-shadow btn-mn">Atualizar Conteúdo</button>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Loading screen -->
+        <section aria-labelledby="overlay">
+            <h2 class="sr-only" id="overlay">Loading Overlay</h2>
+            <div id="loading-overlay">
+                <h1 class="text-light logo-font loading-spinner">
+                    <span class="icon">
+                        <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                    </span>
+                </h1>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'bio/js/bio_form.js' %}"></script>
+{% endblock %}
